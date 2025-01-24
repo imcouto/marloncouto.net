@@ -4,7 +4,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card.tsx'
-import type TimelineItem from '@/types/TimelineItem.ts'
+import type TimelineItem from '@/interfaces/TimelineItem'
 
 export default function TimelineSection({
   timelineData,

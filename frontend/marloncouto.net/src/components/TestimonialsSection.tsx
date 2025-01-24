@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import type Testimonial from '@/types/Testimonial.ts'
+import type Testimonial from '@/interfaces/Testimonial'
 
 export default function TestimonialsSection({
   testimonials,

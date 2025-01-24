@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button.tsx'
-import type NavLink from '@/types/NavLink.ts'
+import type NavLink from '@/interfaces/NavLink'
 import { Menu } from 'lucide-react'
 
 export default function NavbarComponent({
