@@ -4,5 +4,14 @@
   "editor.formatOnPaste": true,
   "files.associations": {
     "*.css": "tailwindcss"
+  },
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports.ts": "explicit",
+    "source.organizeImports": "explicit",
+    "source.fixAll.eslint": "explicit",
+    "source.removeUnused.ts": "explicit",
+    "source.fixAll": "explicit",
+    "source.removeUnusedImports": "explicit",
+    "source.sortImports": "explicit"
   }
 }
