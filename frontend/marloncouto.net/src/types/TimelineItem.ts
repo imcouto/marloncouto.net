@@ -1,4 +1,4 @@
-export default interface TimelineItem {
+export type TimelineItem = {
   year: string
   title: string
   description: string

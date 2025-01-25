@@ -1,6 +1,6 @@
-import type NavLink from '@/interfaces/NavLink'
-import type Testimonial from '@/interfaces/Testimonial'
-import type TimelineItem from '@/interfaces/TimelineItem'
+import type { NavLink } from '@/types/NavLink'
+import type { Testimonial } from '@/types/Testimonial'
+import type { TimelineItem } from '@/types/TimelineItem'
 
 export const devName = 'Marlon Couto'
 
@@ -48,6 +48,7 @@ export const timelineData: TimelineItem[] = [
 
 export const navLinks: NavLink[] = [
   { href: '#about', label: 'Sobre' },
+  { href: '#widgets', label: 'Widgets' },
   { href: '#timeline', label: 'Trajetória' },
   { href: '#projects', label: 'Projetos' },
   { href: '#skills', label: 'Habilidades' },
