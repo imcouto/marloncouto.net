@@ -48,6 +48,7 @@ export default function HeroSection({
           width={300}
           height={300}
           className='rounded-full'
+          loading='lazy'
         />
       </div>
     </section>

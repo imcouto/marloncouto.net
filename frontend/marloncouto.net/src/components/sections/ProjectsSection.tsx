@@ -35,6 +35,7 @@ export default function ProjectsSection({
                 width={400}
                 height={200}
                 className='rounded-md'
+                loading='lazy'
               />
             </CardContent>
             <CardFooter>

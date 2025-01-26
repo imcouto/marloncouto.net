@@ -28,6 +28,7 @@ export default function TestimonialsSection({
                   width={50}
                   height={50}
                   className='rounded-full'
+                  loading='lazy'
                 />
                 <div>
                   <CardTitle className='text-lg'>{testimonial.name}</CardTitle>
