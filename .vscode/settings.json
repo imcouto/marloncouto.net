@@ -13,5 +13,6 @@
     "source.fixAll": "explicit",
     "source.removeUnusedImports": "explicit",
     "source.sortImports": "explicit"
-  }
+  },
+  "cSpell.words": ["codosim"]
 }
