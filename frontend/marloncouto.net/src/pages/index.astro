@@ -1,17 +1,19 @@
 ---
-import FooterComponent from '@/components/FooterComponent.tsx'
-import NavbarComponent from '@/components/NavbarComponent.tsx'
-import ContactSection from '@/components/sections/ContactSection.tsx'
-import HeroSection from '@/components/sections/HeroSection.tsx'
-import ProjectsSection from '@/components/sections/ProjectsSection.tsx'
-import SkillsSection from '@/components/sections/SkillsSection.tsx'
-import TestimonialsSection from '@/components/sections/TestimonialsSection.tsx'
-import TimelineSection from '@/components/sections/TimelineSection.tsx'
-import WidgetsSection from '@/components/sections/WidgetsSection.tsx'
-import CryptoWidget from '@/components/widgets/CryptoWidget.tsx'
-import DollarQuoteWidget from '@/components/widgets/DollarQuoteWidget.tsx'
-import TechNewsWidget from '@/components/widgets/TechNewsWidget.tsx'
-import WeatherWidget from '@/components/widgets/WeatherWidget.tsx'
+import {
+  ContactSection,
+  CryptoWidget,
+  DollarQuoteWidget,
+  FooterComponent,
+  HeroSection,
+  NavbarComponent,
+  ProjectsSection,
+  SkillsSection,
+  TechNewsWidget,
+  TestimonialsSection,
+  TimelineSection,
+  WeatherWidget,
+  WidgetsSection,
+} from '@/components/index.ts'
 import {
   devName,
   heroDescription,
@@ -34,7 +36,7 @@ import Layout from '@/layouts/Layout.astro'
     <main class='container mx-auto px-4 pt-20'>
       <HeroSection
         devName={devName}
-        placeholderUrl={placeholderUrl}
+        imageUrl={placeholderUrl}
         heroDescription={heroDescription}
       />
       <WidgetsSection>
@@ -45,13 +47,13 @@ import Layout from '@/layouts/Layout.astro'
       </WidgetsSection>
       <TimelineSection timelineData={timelineData} />
       <ProjectsSection
-        placeholderUrl={placeholderUrl}
+        imageUrl={placeholderUrl}
         projects={projects}
       />
       <SkillsSection skills={skills} />
       <TestimonialsSection
         testimonials={testimonials}
-        placeholderUrl={placeholderUrl}
+        imageUrl={placeholderUrl}
       />
       <ContactSection />
     </main>

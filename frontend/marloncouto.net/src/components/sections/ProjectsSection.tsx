@@ -9,10 +9,10 @@ import {
 } from '@/components/ui/card.tsx'
 
 export default function ProjectsSection({
-  placeholderUrl,
+  imageUrl: placeholderUrl,
   projects,
 }: {
-  placeholderUrl: string
+  imageUrl: string
   projects: number[] | string[]
 }) {
   return (

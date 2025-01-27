@@ -3,10 +3,10 @@ import type { Testimonial } from '@/types/Testimonial'
 
 export default function TestimonialsSection({
   testimonials,
-  placeholderUrl,
+  imageUrl: placeholderUrl,
 }: {
   testimonials: Testimonial[]
-  placeholderUrl: string
+  imageUrl: string
 }) {
   return (
     <section
