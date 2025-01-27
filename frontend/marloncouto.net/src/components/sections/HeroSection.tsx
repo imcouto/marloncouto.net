@@ -3,11 +3,11 @@ import { Github, Linkedin, Mail } from 'lucide-react'
 
 export default function HeroSection({
   devName,
-  placeholderUrl,
+  imageUrl: placeholderUrl,
   heroDescription,
 }: {
   devName: string
-  placeholderUrl: string
+  imageUrl: string
   heroDescription: string
 }) {
   return (
