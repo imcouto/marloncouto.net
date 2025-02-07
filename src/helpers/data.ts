@@ -1,10 +1,10 @@
-import type { NavLink } from '@/types/NavLink'
-import type { Testimonial } from '@/types/Testimonial'
-import type { TimelineItem } from '@/types/TimelineItem'
+import type { NavLink } from '@/types/NavLink';
+import type { Testimonial } from '@/types/Testimonial';
+import type { TimelineItem } from '@/types/TimelineItem';
 
-export const devName = 'Marlon Couto'
+export const devName = 'Marlon Couto';
 
-export const placeholderUrl = 'https://placehold.co'
+export const placeholderUrl = 'https://placehold.co';
 
 export const skills = [
   'JavaScript',
@@ -15,9 +15,9 @@ export const skills = [
   'Git',
   'Docker',
   'AWS',
-]
+];
 
-export const projects = [1, 2, 3]
+export const projects = [1, 2, 3];
 
 export const timelineData: TimelineItem[] = [
   {
@@ -44,20 +44,20 @@ export const timelineData: TimelineItem[] = [
     description:
       'Início da carreira com foco em HTML, CSS e JavaScript básico.',
   },
-]
+];
 
 export const navLinks: NavLink[] = [
   { href: '#about', label: 'Sobre' },
   { href: '#widgets', label: 'Widgets' },
   { href: '#timeline', label: 'Trajetória' },
   { href: '#projects', label: 'Projetos' },
-  { href: '#skills', label: 'Habilidades' },
   { href: '#testimonials', label: 'Depoimentos' },
+  { href: '#skills', label: 'Habilidades' },
   { href: '#contact', label: 'Contato' },
-]
+];
 
 export const heroDescription =
-  'Desenvolvedor Full-Stack apaixonado por transformar ideias em soluções web inovadoras e impactantes. Combinando criatividade e eficiência, crio experiências digitais que conectam pessoas e impulsionam resultados.'
+  'Desenvolvedor Full-Stack apaixonado por transformar ideias em soluções web inovadoras e impactantes. Combinando criatividade e eficiência, crio experiências digitais que conectam pessoas e impulsionam resultados.';
 
 export const testimonials: Testimonial[] = [
   {
@@ -81,4 +81,4 @@ export const testimonials: Testimonial[] = [
     testimonial: `Trabalhar com o ${devName} foi uma experiência incrível. Sua comunicação clara e habilidades técnicas são impressionantes.`,
     avatar: '',
   },
-]
+];

@@ -1,7 +1,7 @@
 export default function WidgetsSection({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <>
@@ -15,5 +15,5 @@ export default function WidgetsSection({
         </div>
       </section>
     </>
-  )
+  );
 }

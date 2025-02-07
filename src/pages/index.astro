@@ -13,7 +13,7 @@ import {
   TimelineSection,
   WeatherWidget,
   WidgetsSection,
-} from '@/components/index.ts'
+} from '@/components/index.ts';
 import {
   devName,
   heroDescription,
@@ -23,8 +23,9 @@ import {
   skills,
   testimonials,
   timelineData,
-} from '@/helpers/data.ts'
-import Layout from '@/layouts/Layout.astro'
+} from '@/helpers/data.ts';
+import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
 ---
 
 <Layout>
@@ -38,23 +39,37 @@ import Layout from '@/layouts/Layout.astro'
         devName={devName}
         imageUrl={placeholderUrl}
         heroDescription={heroDescription}
-      />
+        hasChildren
+      >
+        <Image
+          src={'/src/assets/images/profile.jpg'}
+          alt={devName}
+          width={300}
+          height={300}
+          class='rounded-full'
+          loading='lazy'
+        />
+      </HeroSection>
+      <!-- TODO: smaller widgets in another location -->
       <WidgetsSection>
         <TechNewsWidget client:load />
         <WeatherWidget client:load />
         <CryptoWidget client:load />
         <DollarQuoteWidget client:load />
       </WidgetsSection>
+      <!-- TODO: a better timeline -->
       <TimelineSection timelineData={timelineData} />
+      <!-- TODO: implement this using GitHub API in client-side -->
       <ProjectsSection
         imageUrl={placeholderUrl}
         projects={projects}
       />
-      <SkillsSection skills={skills} />
       <TestimonialsSection
         testimonials={testimonials}
         imageUrl={placeholderUrl}
       />
+      <SkillsSection skills={skills} />
+      <!-- TODO: contact form is a modal and is multi step -->
       <ContactSection />
     </main>
     <FooterComponent devName={devName} />
