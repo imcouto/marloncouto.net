@@ -1,30 +1,31 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import type { DollarQuoteData } from '@/types/DollarQuoteData'
-import { DollarSign, TrendingDown, TrendingUp } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { DollarQuoteData } from '@/types/DollarQuoteData';
+import { DollarSign, TrendingDown, TrendingUp } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const mockDollarData: DollarQuoteData = {
   currency: 'USD',
   quote: 5.03,
   variation: -0.45,
   lastUpdate: '2023-06-15T14:30:00Z',
-}
+};
 
+// TODO: make a request to the server to get the data
 export default function DollarQuoteWidget() {
-  const [dollarData, setDollarData] = useState<DollarQuoteData | null>(null)
+  const [dollarData, setDollarData] = useState<DollarQuoteData | null>(null);
 
   useEffect(() => {
     setTimeout(() => {
-      setDollarData(mockDollarData)
-    }, 1000)
-  }, [])
+      setDollarData(mockDollarData);
+    }, 1000);
+  }, []);
 
   if (!dollarData) {
     return (
       <Card className='w-full max-w-sm mx-auto'>
         <CardContent>Carregando...</CardContent>
       </Card>
-    )
+    );
   }
 
   const formattedDate = new Date(dollarData.lastUpdate).toLocaleString(
@@ -36,7 +37,7 @@ export default function DollarQuoteWidget() {
       hour: '2-digit',
       minute: '2-digit',
     },
-  )
+  );
 
   return (
     <Card className='w-full max-w-sm mx-auto'>
@@ -69,5 +70,5 @@ export default function DollarQuoteWidget() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

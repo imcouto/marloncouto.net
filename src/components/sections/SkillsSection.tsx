@@ -1,3 +1,4 @@
+// TODO: animate skills on hover, add icons to each skill
 export default function SkillsSection({ skills }: { skills: string[] }) {
   return (
     <section
@@ -16,5 +17,5 @@ export default function SkillsSection({ skills }: { skills: string[] }) {
         ))}
       </div>
     </section>
-  )
+  );
 }

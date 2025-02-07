@@ -3,13 +3,14 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card.tsx'
-import type { TimelineItem } from '@/types/TimelineItem'
+} from '@/components/ui/card.tsx';
+import type { TimelineItem } from '@/types/TimelineItem';
 
+// TODO: a better timeline
 export default function TimelineSection({
   timelineData,
 }: {
-  timelineData: TimelineItem[]
+  timelineData: TimelineItem[];
 }) {
   return (
     <section
@@ -45,5 +46,5 @@ export default function TimelineSection({
         ))}
       </div>
     </section>
-  )
+  );
 }

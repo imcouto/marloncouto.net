@@ -1,39 +1,40 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import type { WeatherData } from '@/types/WeatherData'
-import { Cloud, CloudRain, Snowflake, Sun } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { WeatherData } from '@/types/WeatherData';
+import { Cloud, CloudRain, Snowflake, Sun } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const weatherIcons = {
   sunny: Sun,
   cloudy: Cloud,
   rainy: CloudRain,
   snowy: Snowflake,
-}
+};
 
 const mockWeatherData: WeatherData = {
   temperature: 22,
   condition: 'sunny',
   location: 'São Paulo, BR',
-}
+};
 
+// TODO: make a request to the server to get the data
 export default function WeatherWidget() {
-  const [weatherData, setWeatherData] = useState<WeatherData | null>(null)
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
 
   useEffect(() => {
     setTimeout(() => {
-      setWeatherData(mockWeatherData)
-    }, 1000)
-  }, [])
+      setWeatherData(mockWeatherData);
+    }, 1000);
+  }, []);
 
   if (!weatherData) {
     return (
       <Card className='w-full max-w-sm mx-auto'>
         <CardContent>Carregando...</CardContent>
       </Card>
-    )
+    );
   }
 
-  const WeatherIcon = weatherIcons[weatherData.condition]
+  const WeatherIcon = weatherIcons[weatherData.condition];
 
   return (
     <Card className='w-full max-w-sm mx-auto'>
@@ -50,5 +51,5 @@ export default function WeatherWidget() {
         <div className='text-muted-foreground'>{weatherData.location}</div>
       </CardContent>
     </Card>
-  )
+  );
 }

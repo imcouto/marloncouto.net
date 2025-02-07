@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button.tsx'
+import { Button } from '@/components/ui/button.tsx';
 import {
   Card,
   CardContent,
@@ -6,14 +6,15 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card.tsx'
+} from '@/components/ui/card.tsx';
 
+// TODO: implement this using GitHub API in client-side
 export default function ProjectsSection({
   imageUrl: placeholderUrl,
   projects,
 }: {
-  imageUrl: string
-  projects: number[] | string[]
+  imageUrl: string;
+  projects: number[] | string[];
 }) {
   return (
     <section
@@ -22,6 +23,7 @@ export default function ProjectsSection({
     >
       <h2 className='text-3xl font-bold mb-8'>Projetos Destacados</h2>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+        {/* TODO: opens a modal with more info when project is clicked */}
         {projects.map((project) => (
           <Card key={project}>
             <CardHeader>
@@ -50,5 +52,5 @@ export default function ProjectsSection({
         ))}
       </div>
     </section>
-  )
+  );
 }

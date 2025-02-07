@@ -47,19 +47,15 @@ import { Image } from 'astro:assets';
           width={300}
           height={300}
           class='rounded-full'
-          loading='lazy'
         />
       </HeroSection>
-      <!-- TODO: smaller widgets in another location -->
       <WidgetsSection>
         <TechNewsWidget client:load />
         <WeatherWidget client:load />
         <CryptoWidget client:load />
         <DollarQuoteWidget client:load />
       </WidgetsSection>
-      <!-- TODO: a better timeline -->
       <TimelineSection timelineData={timelineData} />
-      <!-- TODO: implement this using GitHub API in client-side -->
       <ProjectsSection
         imageUrl={placeholderUrl}
         projects={projects}
@@ -69,7 +65,6 @@ import { Image } from 'astro:assets';
         imageUrl={placeholderUrl}
       />
       <SkillsSection skills={skills} />
-      <!-- TODO: contact form is a modal and is multi step -->
       <ContactSection />
     </main>
     <FooterComponent devName={devName} />

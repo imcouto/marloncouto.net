@@ -1,12 +1,13 @@
-import { Button } from '@/components/ui/button.tsx'
+import { Button } from '@/components/ui/button.tsx';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card.tsx'
+} from '@/components/ui/card.tsx';
 
+// TODO: contact form is a modal and is multi step
 export default function ContactSection() {
   return (
     <section
@@ -39,10 +40,11 @@ export default function ContactSection() {
               rows={4}
               className='w-full p-2 rounded-md border'
             ></textarea>
+            {/* TODO: make a request to the server */}
             <Button className='w-full'>Enviar Mensagem</Button>
           </form>
         </CardContent>
       </Card>
     </section>
-  )
+  );
 }

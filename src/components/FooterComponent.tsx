@@ -1,3 +1,4 @@
+// TODO: add more links, social media, etc
 export default function FooterComponent({ devName }: { devName: string }) {
   return (
     <footer className='bg-secondary py-6'>
@@ -5,5 +6,5 @@ export default function FooterComponent({ devName }: { devName: string }) {
         <p>&copy; 2024 {devName}. Todos os direitos reservados.</p>
       </div>
     </footer>
-  )
+  );
 }

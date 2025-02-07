@@ -1,7 +1,7 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import type { NewsItem } from '@/types/NewsItem'
-import { ExternalLink } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { NewsItem } from '@/types/NewsItem';
+import { ExternalLink } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const mockNewsData: NewsItem[] = [
   {
@@ -19,23 +19,24 @@ const mockNewsData: NewsItem[] = [
     url: 'https://example.com/news3',
     source: 'Telecom Today',
   },
-]
+];
 
+// TODO: make a request to the server to get the data
 export default function TechNewsWidget() {
-  const [newsData, setNewsData] = useState<NewsItem[] | null>(null)
+  const [newsData, setNewsData] = useState<NewsItem[] | null>(null);
 
   useEffect(() => {
     setTimeout(() => {
-      setNewsData(mockNewsData)
-    }, 1000)
-  }, [])
+      setNewsData(mockNewsData);
+    }, 1000);
+  }, []);
 
   if (!newsData) {
     return (
       <Card className='w-full max-w-sm mx-auto'>
         <CardContent>Carregando...</CardContent>
       </Card>
-    )
+    );
   }
 
   return (
@@ -66,5 +67,5 @@ export default function TechNewsWidget() {
         </ul>
       </CardContent>
     </Card>
-  )
+  );
 }

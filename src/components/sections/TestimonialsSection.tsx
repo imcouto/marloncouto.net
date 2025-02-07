@@ -1,12 +1,13 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import type { Testimonial } from '@/types/Testimonial'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { Testimonial } from '@/types/Testimonial';
 
+// TODO: this is a marquee component, it should be replaced with a infinite carousel
 export default function TestimonialsSection({
   testimonials,
   imageUrl: placeholderUrl,
 }: {
-  testimonials: Testimonial[]
-  imageUrl: string
+  testimonials: Testimonial[];
+  imageUrl: string;
 }) {
   return (
     <section
@@ -45,5 +46,5 @@ export default function TestimonialsSection({
         ))}
       </div>
     </section>
-  )
+  );
 }
