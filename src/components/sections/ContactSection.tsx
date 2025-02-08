@@ -7,7 +7,6 @@ import {
   CardTitle,
 } from '@/components/ui/card.tsx';
 
-// TODO: contact form is a modal and is multi step
 export default function ContactSection() {
   return (
     <section

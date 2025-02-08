@@ -18,8 +18,6 @@ import {
   devName,
   heroDescription,
   navLinks,
-  placeholderUrl,
-  projects,
   skills,
   testimonials,
   timelineData,
@@ -55,14 +53,8 @@ import { Image } from 'astro:assets';
         <DollarQuoteWidget client:load />
       </WidgetsSection>
       <TimelineSection timelineData={timelineData} />
-      <ProjectsSection
-        imageUrl={placeholderUrl}
-        projects={projects}
-      />
-      <TestimonialsSection
-        testimonials={testimonials}
-        imageUrl={placeholderUrl}
-      />
+      <ProjectsSection client:load />
+      <TestimonialsSection testimonials={testimonials} />
       <SkillsSection skills={skills} />
       <ContactSection />
     </main>

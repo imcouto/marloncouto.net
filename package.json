@@ -6,9 +6,11 @@
     "dev": "astro dev --port 8000",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "update:index": "python scripts/update_indexes.py --exclude ui src/components && python scripts/update_indexes.py --types src/types"
   },
   "dependencies": {
+    "@astrojs/node": "^9.0.2",
     "@astrojs/react": "^4.1.6",
     "@astrojs/tailwind": "^5.1.5",
     "@radix-ui/react-dialog": "^1.1.6",
@@ -17,9 +19,12 @@
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
     "astro": "^5.1.9",
+    "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.474.0",
+    "nanostores": "^0.11.3",
+    "octokit": "^4.1.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^2.6.0",
