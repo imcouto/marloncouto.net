@@ -1,5 +1,5 @@
 // TODO: add more links, social media, etc
-export default function FooterComponent({ devName }: { devName: string }) {
+export function FooterComponent({ devName }: { devName: string }) {
   return (
     <footer className='bg-secondary py-6'>
       <div className='container mx-auto px-4 text-center'>

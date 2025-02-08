@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button.tsx';
 
-export default function ContactForm() {
+export function ContactForm() {
   return (
     <>
       <form className='space-y-4'>

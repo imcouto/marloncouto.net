@@ -16,7 +16,7 @@ const mockCryptoData: CryptoData[] = [
 ];
 
 // TODO: make a request to the server to get the data
-export default function CryptoWidget() {
+export function CryptoWidget() {
   const [cryptoData, setCryptoData] = useState<CryptoData[] | null>(null);
 
   useEffect(() => {

@@ -17,7 +17,7 @@ const mockWeatherData: WeatherData = {
 };
 
 // TODO: make a request to the server to get the data
-export default function WeatherWidget() {
+export function WeatherWidget() {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
 
   useEffect(() => {

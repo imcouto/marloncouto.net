@@ -13,7 +13,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 // TODO: implement this using GitHub API in client-side
-export default function ProjectsSection() {
+export function ProjectsSection() {
   const [projects, setProjects] = useState<RepositoryData[]>([]);
 
   useEffect(() => {

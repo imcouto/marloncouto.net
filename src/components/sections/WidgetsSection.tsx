@@ -1,9 +1,5 @@
 // TODO: smaller widgets in another location
-export default function WidgetsSection({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function WidgetsSection({ children }: { children: React.ReactNode }) {
   return (
     <>
       <section

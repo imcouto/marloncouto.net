@@ -22,7 +22,7 @@ const mockNewsData: NewsItem[] = [
 ];
 
 // TODO: make a request to the server to get the data
-export default function TechNewsWidget() {
+export function TechNewsWidget() {
   const [newsData, setNewsData] = useState<NewsItem[] | null>(null);
 
   useEffect(() => {

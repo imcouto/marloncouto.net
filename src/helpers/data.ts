@@ -80,3 +80,5 @@ export const testimonials: Testimonial[] = [
     avatar: '',
   },
 ];
+
+export const excludedRepos = ['imcouto'];

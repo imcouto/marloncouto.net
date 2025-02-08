@@ -1,10 +1,10 @@
-import ContactModal from '@/components/ContactModal.tsx';
+import { ContactModal } from '@/components/ContactModal.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { placeholderUrl } from '@/helpers/data.ts';
 import { Github, Linkedin } from 'lucide-react';
 import type { PropsWithChildren } from 'react';
 
-export default function HeroSection({
+export function HeroSection({
   devName,
   imageUrl = `${placeholderUrl}/300`,
   heroDescription,

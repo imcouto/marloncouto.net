@@ -1,4 +1,4 @@
-import ContactForm from '@/components/ContactForm.tsx';
+import { ContactForm } from '@/components/ContactForm.tsx';
 import {
   Card,
   CardContent,
@@ -7,7 +7,7 @@ import {
   CardTitle,
 } from '@/components/ui/card.tsx';
 
-export default function ContactSection() {
+export function ContactSection() {
   return (
     <section
       id='contact'

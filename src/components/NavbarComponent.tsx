@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button.tsx';
 import type { NavLink } from '@/types/index.ts';
 import { Menu } from 'lucide-react';
 
-export default function NavbarComponent({
+export function NavbarComponent({
   devName,
   navLinks,
 }: {

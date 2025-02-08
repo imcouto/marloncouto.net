@@ -13,7 +13,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Mail } from 'lucide-react';
 import { useState } from 'react';
 
-export default function ContactModal() {
+export function ContactModal() {
   const [isOpen, setIsOpen] = useState(false);
   console.log('isOpen :>> ', isOpen);
 

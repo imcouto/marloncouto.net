@@ -33,9 +33,7 @@ def generate_index_file(root_folder, exclude_folder, export_types):
         if export_types:
             lines.append(f"export type {{ {export_name} }} from './{import_path}';")
         else:
-            lines.append(
-                f"export {{ default as {export_name} }} from './{import_path}';"
-            )
+            lines.append(f"export {{ {export_name} }} from './{import_path}';")
 
     # Write the index.ts file
     with index_file.open("w", encoding="utf-8") as f:

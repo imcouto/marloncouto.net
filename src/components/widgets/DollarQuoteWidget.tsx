@@ -11,7 +11,7 @@ const mockDollarData: DollarQuoteData = {
 };
 
 // TODO: make a request to the server to get the data
-export default function DollarQuoteWidget() {
+export function DollarQuoteWidget() {
   const [dollarData, setDollarData] = useState<DollarQuoteData | null>(null);
 
   useEffect(() => {

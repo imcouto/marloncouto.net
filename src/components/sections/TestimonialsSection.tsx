@@ -3,7 +3,7 @@ import { placeholderUrl } from '@/helpers/data.ts';
 import type { Testimonial } from '@/types/index.ts';
 
 // TODO: this is a marquee component, it should be replaced with a infinite carousel
-export default function TestimonialsSection({
+export function TestimonialsSection({
   testimonials,
 }: {
   testimonials: Testimonial[];

@@ -7,7 +7,7 @@ import {
 import type { TimelineItem } from '@/types/index.ts';
 
 // TODO: a better timeline
-export default function TimelineSection({
+export function TimelineSection({
   timelineData,
 }: {
   timelineData: TimelineItem[];

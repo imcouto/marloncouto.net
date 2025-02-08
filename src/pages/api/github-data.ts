@@ -1,12 +1,13 @@
-import { Env } from '@/helpers/environment.ts';
+import { excludedRepos } from '@/helpers/data.ts';
+import { env } from '@/helpers/environment.ts';
 import type { APIRoute } from 'astro';
 import { Octokit } from 'octokit';
 
-const token = Env.GITHUB_TOKEN;
+const token = env.GITHUB_TOKEN;
 console.log('token :>> ', token);
 
 const ocktokit = new Octokit({
-  auth: Env.GITHUB_TOKEN,
+  auth: env.GITHUB_TOKEN,
 });
 
 export const POST: APIRoute = async ({ url }) => {
@@ -14,26 +15,28 @@ export const POST: APIRoute = async ({ url }) => {
     console.log('url :>> ', url);
 
     const { data } = await ocktokit.request('GET /users/{username}/repos', {
-      username: Env.GITHUB_USERNAME.toString(),
+      username: env.GITHUB_USERNAME.toString(),
     });
     console.log('data :>> ', data);
 
     const projects = await Promise.all(
-      data.map(async (repo) => {
-        const coverImage = await getRepositoryCoverImage(
-          ocktokit,
-          Env.GITHUB_USERNAME.toString(),
-          repo.name,
-        );
+      data
+        .filter((repo) => !excludedRepos.includes(repo.name))
+        .map(async (repo) => {
+          const coverImage = await getRepositoryCoverImage(
+            ocktokit,
+            env.GITHUB_USERNAME.toString(),
+            repo.name,
+          );
 
-        return {
-          name: repo.name,
-          description: repo.description,
-          coverImage,
-          htmlUrl: repo.html_url,
-          id: repo.id,
-        };
-      }),
+          return {
+            name: repo.name,
+            description: repo.description,
+            coverImage,
+            htmlUrl: repo.html_url,
+            id: repo.id,
+          };
+        }),
     );
 
     return new Response(JSON.stringify({ projects }), {
