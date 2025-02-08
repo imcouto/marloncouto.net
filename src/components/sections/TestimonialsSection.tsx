@@ -9,6 +9,8 @@ export default function TestimonialsSection({
   testimonials: Testimonial[];
   imageUrl: string;
 }) {
+  console.log('testimonials :>> ', testimonials);
+
   return (
     <section
       id='testimonials'

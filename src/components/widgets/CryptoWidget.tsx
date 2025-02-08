@@ -33,6 +33,8 @@ export default function CryptoWidget() {
     );
   }
 
+  console.log('cryptoData :>> ', cryptoData);
+
   return (
     <Card className='w-full max-w-sm mx-auto'>
       <CardHeader>

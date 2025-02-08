@@ -16,6 +16,8 @@ export default function ProjectsSection({
   imageUrl: string;
   projects: number[] | string[];
 }) {
+  console.log('projects :>> ', projects);
+
   return (
     <section
       id='projects'

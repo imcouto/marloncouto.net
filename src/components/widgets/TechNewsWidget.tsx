@@ -39,6 +39,8 @@ export default function TechNewsWidget() {
     );
   }
 
+  console.log('newsData :>> ', newsData);
+
   return (
     <Card className='w-full max-w-sm mx-auto'>
       <CardHeader>

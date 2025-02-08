@@ -39,6 +39,8 @@ export default function DollarQuoteWidget() {
     },
   );
 
+  console.log('dollarData :>> ', dollarData);
+
   return (
     <Card className='w-full max-w-sm mx-auto'>
       <CardHeader>

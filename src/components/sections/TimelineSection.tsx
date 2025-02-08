@@ -12,6 +12,8 @@ export default function TimelineSection({
 }: {
   timelineData: TimelineItem[];
 }) {
+  console.log('timelineData :>> ', timelineData);
+
   return (
     <section
       id='timeline'

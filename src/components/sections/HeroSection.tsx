@@ -1,20 +1,21 @@
+import ContactModal from '@/components/ContactModal.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { placeholderUrl } from '@/helpers/data.ts';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 import type { PropsWithChildren } from 'react';
 
 export default function HeroSection({
   devName,
-  imageUrl,
+  imageUrl = `${placeholderUrl}/300`,
   heroDescription,
-  hasChildren,
   children,
 }: PropsWithChildren<{
   devName: string;
-  imageUrl: string;
+  imageUrl?: string;
   heroDescription: string;
-  hasChildren?: boolean;
 }>) {
+  console.log('imageUrl :>> ', imageUrl);
+
   return (
     <section
       id='about'
@@ -38,21 +39,21 @@ export default function HeroSection({
           >
             <Linkedin className='h-5 w-5' />
           </Button>
-          <Button
+          <ContactModal />
+          {/* <Button
             variant='outline'
             size='icon'
           >
-            {/* TODO: this button open the contact form modal */}
             <Mail className='h-5 w-5' />
-          </Button>
+          </Button> */}
         </div>
       </div>
       <div className='md:w-1/2 flex justify-center'>
-        {hasChildren ? (
+        {children ? (
           children
         ) : (
           <img
-            src={imageUrl ? imageUrl : `${placeholderUrl}/300`}
+            src={imageUrl}
             alt={devName}
             width={300}
             height={300}

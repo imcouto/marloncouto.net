@@ -1,5 +1,7 @@
 // TODO: animate skills on hover, add icons to each skill
 export default function SkillsSection({ skills }: { skills: string[] }) {
+  console.log('skills :>> ', skills);
+
   return (
     <section
       id='skills'

@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button.tsx';
+import ContactForm from '@/components/ContactForm.tsx';
 import {
   Card,
   CardContent,
@@ -24,25 +24,7 @@ export default function ContactSection() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form className='space-y-4'>
-            <input
-              type='text'
-              placeholder='Nome'
-              className='w-full p-2 rounded-md border'
-            />
-            <input
-              type='email'
-              placeholder='Email'
-              className='w-full p-2 rounded-md border'
-            />
-            <textarea
-              placeholder='Mensagem'
-              rows={4}
-              className='w-full p-2 rounded-md border'
-            ></textarea>
-            {/* TODO: make a request to the server */}
-            <Button className='w-full'>Enviar Mensagem</Button>
-          </form>
+          <ContactForm />
         </CardContent>
       </Card>
     </section>

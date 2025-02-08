@@ -36,6 +36,8 @@ export default function WeatherWidget() {
 
   const WeatherIcon = weatherIcons[weatherData.condition];
 
+  console.log('weatherData :>> ', weatherData);
+
   return (
     <Card className='w-full max-w-sm mx-auto'>
       <CardHeader>

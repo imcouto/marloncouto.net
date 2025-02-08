@@ -37,9 +37,8 @@ import { Image } from 'astro:assets';
     <main class='container mx-auto px-4 pt-20'>
       <HeroSection
         devName={devName}
-        imageUrl={placeholderUrl}
         heroDescription={heroDescription}
-        hasChildren
+        client:load
       >
         <Image
           src={'/src/assets/images/profile.jpg'}
