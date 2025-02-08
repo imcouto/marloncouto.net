@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import type { NewsItem } from '@/types/NewsItem';
+import type { NewsItem } from '@/types/index.ts';
 import { ExternalLink } from 'lucide-react';
 import { useEffect, useState } from 'react';
 

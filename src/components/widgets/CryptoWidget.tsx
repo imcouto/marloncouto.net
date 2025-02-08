@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import type { CryptoData } from '@/types/CryptoData';
+import type { CryptoData } from '@/types/index.ts';
 import { Bitcoin, DollarSign, EclipseIcon } from 'lucide-react';
 import { useEffect, useState } from 'react';
 

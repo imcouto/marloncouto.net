@@ -14,6 +14,7 @@ export default function HeroSection({
   imageUrl?: string;
   heroDescription: string;
 }>) {
+  console.log('heroDescription :>> ', heroDescription);
   console.log('imageUrl :>> ', imageUrl);
 
   return (

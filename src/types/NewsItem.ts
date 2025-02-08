@@ -1,5 +1,5 @@
 export type NewsItem = {
-  title: string
-  url: string
-  source: string
-}
+  title: string;
+  url: string;
+  source: string;
+};

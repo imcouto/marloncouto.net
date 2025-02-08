@@ -19,7 +19,7 @@ export default function ContactModal() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Formulário enviado');
+    console.log('Form submitted');
     setIsOpen(false);
   };
 

@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import type { WeatherData } from '@/types/WeatherData';
+import type { WeatherData } from '@/types/index.ts';
 import { Cloud, CloudRain, Snowflake, Sun } from 'lucide-react';
 import { useEffect, useState } from 'react';
 

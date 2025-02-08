@@ -1,13 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import type { Testimonial } from '@/types/Testimonial';
+import { placeholderUrl } from '@/helpers/data.ts';
+import type { Testimonial } from '@/types/index.ts';
 
 // TODO: this is a marquee component, it should be replaced with a infinite carousel
 export default function TestimonialsSection({
   testimonials,
-  imageUrl: placeholderUrl,
 }: {
   testimonials: Testimonial[];
-  imageUrl: string;
 }) {
   console.log('testimonials :>> ', testimonials);
 

@@ -1,6 +1,4 @@
-import type { NavLink } from '@/types/NavLink';
-import type { Testimonial } from '@/types/Testimonial';
-import type { TimelineItem } from '@/types/TimelineItem';
+import type { NavLink, Testimonial, TimelineItem } from '@/types/index.ts';
 
 export const devName = 'Marlon Couto';
 

@@ -7,13 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card.tsx';
+import { placeholderUrl } from '@/helpers/data.ts';
 
 // TODO: implement this using GitHub API in client-side
 export default function ProjectsSection({
-  imageUrl: placeholderUrl,
   projects,
 }: {
-  imageUrl: string;
   projects: number[] | string[];
 }) {
   console.log('projects :>> ', projects);

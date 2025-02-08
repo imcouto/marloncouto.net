@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button.tsx';
-import type { NavLink } from '@/types/NavLink';
+import type { NavLink } from '@/types/index.ts';
 import { Menu } from 'lucide-react';
 
 export default function NavbarComponent({
@@ -9,6 +9,9 @@ export default function NavbarComponent({
   devName: string;
   navLinks: NavLink[];
 }) {
+  console.log('devName :>> ', devName);
+  console.log('navLinks :>> ', navLinks);
+
   return (
     <nav className='fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm'>
       <div className='container mx-auto px-4 py-3 flex justify-between items-center'>

@@ -4,7 +4,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card.tsx';
-import type { TimelineItem } from '@/types/TimelineItem';
+import type { TimelineItem } from '@/types/index.ts';
 
 // TODO: a better timeline
 export default function TimelineSection({

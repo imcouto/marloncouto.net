@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import type { DollarQuoteData } from '@/types/DollarQuoteData';
+import type { DollarQuoteData } from '@/types/index.ts';
 import { DollarSign, TrendingDown, TrendingUp } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
