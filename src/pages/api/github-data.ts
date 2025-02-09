@@ -3,9 +3,11 @@ import { env } from '@/helpers/environment.ts';
 import type { APIRoute } from 'astro';
 import { Octokit } from 'octokit';
 
+// Get the GitHub token from environment variables
 const token = env.GITHUB_TOKEN;
 console.log('token :>> ', token);
 
+// Initialize the Octokit client with authentication
 const ocktokit = new Octokit({
   auth: token,
 });
@@ -14,11 +16,13 @@ export const POST: APIRoute = async ({ url }) => {
   try {
     console.log('url :>> ', url);
 
+    // Make a request to get the user's repositories
     const { data } = await ocktokit.request('GET /users/{username}/repos', {
       username: env.GITHUB_USERNAME.toString(),
     });
     console.log('data :>> ', data);
 
+    // Filter out excluded repositories and get additional information
     const projects = await Promise.all(
       data
         .filter((repo) => !excludedRepos.includes(repo.name))
@@ -41,6 +45,7 @@ export const POST: APIRoute = async ({ url }) => {
         }),
     );
 
+    // Return the list of projects as a JSON response
     return new Response(JSON.stringify({ projects }), {
       headers: {
         'Content-Type': 'application/json',
@@ -48,12 +53,14 @@ export const POST: APIRoute = async ({ url }) => {
     });
   } catch (error) {
     console.error(error);
+    // Return a 500 error in case of failure
     return new Response(JSON.stringify({ error: (error as any).message }), {
       status: 500,
     });
   }
 };
 
+// Function to get the repository cover image
 async function getRepositoryCoverImage(
   octokit: Octokit,
   owner: string,
