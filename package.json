@@ -7,7 +7,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "update:index": "python scripts/update_indexes.py --exclude ui src/components && python scripts/update_indexes.py --types src/types",
+    "update:index": "python scripts/update_indexes.py --exclude ui src/components src/types",
     "start": "npm run build && node dist/server/entry.mjs"
   },
   "dependencies": {
