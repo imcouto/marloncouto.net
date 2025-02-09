@@ -2,6 +2,7 @@ export { ContactForm } from './ContactForm';
 export { ContactModal } from './ContactModal';
 export { FooterComponent } from './FooterComponent';
 export { NavbarComponent } from './NavbarComponent';
+export { ProjectDetails } from './ProjectDetails';
 export { ContactSection } from './sections/ContactSection';
 export { HeroSection } from './sections/HeroSection';
 export { ProjectsSection } from './sections/ProjectsSection';

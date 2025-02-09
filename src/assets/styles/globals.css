@@ -63,6 +63,11 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
+
+  /* Style the scrollbar to make it disappear */
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer base {
@@ -72,5 +77,9 @@
 
   body {
     @apply bg-background text-foreground;
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
   }
 }

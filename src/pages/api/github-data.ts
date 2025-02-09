@@ -7,7 +7,7 @@ const token = env.GITHUB_TOKEN;
 console.log('token :>> ', token);
 
 const ocktokit = new Octokit({
-  auth: env.GITHUB_TOKEN,
+  auth: token,
 });
 
 export const POST: APIRoute = async ({ url }) => {
@@ -35,6 +35,8 @@ export const POST: APIRoute = async ({ url }) => {
             coverImage,
             htmlUrl: repo.html_url,
             id: repo.id,
+            topics: repo.topics,
+            homepage: repo.homepage,
           };
         }),
     );

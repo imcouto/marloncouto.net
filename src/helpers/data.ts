@@ -81,4 +81,4 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export const excludedRepos = ['imcouto'];
+export const excludedRepos = [''];

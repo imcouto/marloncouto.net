@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button.tsx';
+import { ProjectDetails } from '@/components/index.ts';
 import {
   Card,
   CardContent,
@@ -12,7 +12,6 @@ import type { RepositoryData } from '@/types/index.ts';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-// TODO: implement this using GitHub API in client-side
 export function ProjectsSection() {
   const [projects, setProjects] = useState<RepositoryData[]>([]);
 
@@ -57,13 +56,14 @@ export function ProjectsSection() {
                 />
               </CardContent>
               <CardFooter>
-                <Button
+                {/* <Button
                   onClick={() => window.open(project.htmlUrl, '_blank')}
                   variant='outline'
                   className='w-full'
                 >
                   Ver Detalhes
-                </Button>
+                </Button> */}
+                <ProjectDetails project={project} />
               </CardFooter>
             </Card>
           ))
