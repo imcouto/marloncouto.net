@@ -37,7 +37,6 @@ import profilePic from '../assets/images/profile.jpg';
       <HeroSection
         devName={devName}
         heroDescription={heroDescription}
-        client:load
       >
         <Image
           src={profilePic}
@@ -45,6 +44,7 @@ import profilePic from '../assets/images/profile.jpg';
           width={300}
           height={300}
           class='rounded-full'
+          loading='eager'
         />
       </HeroSection>
       <WidgetsSection>
