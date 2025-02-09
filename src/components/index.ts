@@ -1,13 +1,13 @@
-export { ContactForm } from './ContactForm.tsx';
+export { default as ContactForm } from './ContactForm.astro';
 export { ContactModal } from './ContactModal.tsx';
 export { FooterComponent } from './FooterComponent.tsx';
 export { NavbarComponent } from './NavbarComponent.tsx';
 export { ProjectDetails } from './ProjectDetails.tsx';
-export { ContactSection } from './sections/ContactSection.tsx';
+export { default as ContactSection } from './sections/ContactSection.astro';
 export { default as HeroSection } from './sections/HeroSection.astro';
-export { ProjectsSection } from './sections/ProjectsSection.tsx';
+export { default as ProjectsSection } from './sections/ProjectsSection.astro';
 export { default as SkillsSection } from './sections/SkillsSection.astro';
-export { TestimonialsSection } from './sections/TestimonialsSection.tsx';
+export { default as TestimonialsSection } from './sections/TestimonialsSection.astro';
 export { TimelineSection } from './sections/TimelineSection.tsx';
 export { WidgetsSection } from './sections/WidgetsSection.tsx';
 export { CryptoWidget } from './widgets/CryptoWidget.tsx';

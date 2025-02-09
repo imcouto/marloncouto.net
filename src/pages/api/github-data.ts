@@ -12,9 +12,9 @@ const ocktokit = new Octokit({
   auth: token,
 });
 
-export const POST: APIRoute = async ({ url }) => {
+export const POST: APIRoute = async ({ request }) => {
   try {
-    console.log('url :>> ', url);
+    console.log('request :>> ', request);
 
     // Make a request to get the user's repositories
     const { data } = await ocktokit.request('GET /users/{username}/repos', {
