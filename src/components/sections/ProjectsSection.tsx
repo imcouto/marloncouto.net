@@ -34,7 +34,6 @@ export function ProjectsSection() {
         {projects.length === 0 ? (
           <p>Sem projetos para exibir.</p>
         ) : (
-          /* TODO: opens a modal with more info when project is clicked */
           projects.map((project) => (
             <Card key={project.id}>
               <CardHeader>

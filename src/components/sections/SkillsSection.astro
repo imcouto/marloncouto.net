@@ -1,0 +1,19 @@
+---
+const { skills } = Astro.props as { skills: string[] };
+console.log('skills :>> ', skills);
+---
+
+<!-- TODO: animate skills on hover, add icons to each skill -->
+<section
+  id='skills'
+  class='py-20'
+>
+  <h2 class='text-3xl font-bold mb-8'>Habilidades Técnicas</h2>
+  <div class='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+    {
+      skills.map((skill) => (
+        <div class='bg-secondary p-4 rounded-md text-center'>{skill}</div>
+      ))
+    }
+  </div>
+</section>
