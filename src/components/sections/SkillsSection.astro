@@ -5,7 +5,6 @@ const { skills } = Astro.props as { skills: SkillsData[] };
 console.log('skills :>> ', skills);
 ---
 
-<!-- TODO: animate skills on hover, add icons to each skill -->
 <section
   id='skills'
   class='py-20'
@@ -41,13 +40,18 @@ console.log('skills :>> ', skills);
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.skill-item').forEach((el) => {
       const accentColor = el.getAttribute('data-accent-color')!;
-      console.log('accentColor :>> ', accentColor);
 
       el.addEventListener('mouseenter', () => {
         gsap.to(el, {
           scale: 1.1,
           duration: 0.3,
           border: `2px solid ${accentColor}`,
+          color: accentColor,
+        });
+
+        gsap.to(el.querySelector('.skill-icon'), {
+          fill: accentColor,
+          duration: 0.3,
         });
       });
 
@@ -56,6 +60,12 @@ console.log('skills :>> ', skills);
           scale: 1,
           duration: 0.3,
           border: '2px solid transparent',
+          color: 'var(--foreground)',
+        });
+
+        gsap.to(el.querySelector('.skill-icon'), {
+          fill: 'var(--foreground)',
+          duration: 0.3,
         });
       });
     });
