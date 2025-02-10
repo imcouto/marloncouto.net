@@ -20,6 +20,34 @@ import '@/assets/styles/globals.css';
       content={Astro.generator}
     />
     <title>Marlon Couto | Dev FullStack</title>
+    <script is:inline>
+      // Function to apply dark mode preference based on the provided theme
+      function applyDarkModePreference(theme) {
+        if (!theme) {
+          // Remove theme from local storage if no theme is provided
+          localStorage.removeItem('theme');
+        } else {
+          // Save the provided theme to local storage
+          localStorage.theme = theme;
+        }
+
+        // Toggle the 'dark' class on the document element based on the theme
+        document.documentElement.classList.toggle(
+          'dark',
+          localStorage.theme === 'dark' ||
+            (!('theme' in localStorage) &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches),
+        );
+      }
+
+      // Make the function available globally
+      window.applyDarkModePreference = applyDarkModePreference;
+
+      // Apply dark mode preference when the document is fully loaded
+      document.addEventListener('DOMContentLoaded', () => {
+        applyDarkModePreference();
+      });
+    </script>
   </head>
 
   <body>
@@ -35,23 +63,3 @@ import '@/assets/styles/globals.css';
     height: 100%;
   }
 </style>
-
-<script>
-  function applyDarkModePreference() {
-    const prefersDarkMode =
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (prefersDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('dark-mode', 'true');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('dark-mode', 'false');
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    applyDarkModePreference();
-  });
-</script>
