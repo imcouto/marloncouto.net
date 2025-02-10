@@ -12,7 +12,7 @@ const ocktokit = new Octokit({
   auth: token,
 });
 
-export const POST: APIRoute = async ({ request }) => {
+export const GET: APIRoute = async ({ request }) => {
   try {
     console.log('request :>> ', request);
 

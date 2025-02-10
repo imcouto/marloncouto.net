@@ -1,0 +1,13 @@
+---
+import { Card, CardContent } from '@/components/ui/card.tsx';
+
+const { _class = '' } = Astro.props as { _class: string };
+---
+
+<Card className={'w-full max-w-sm mx-auto' + _class}>
+  <CardContent>Carregando...</CardContent>
+</Card>
+
+<script>
+  console.log('Loading...');
+</script>

@@ -1,4 +1,3 @@
-import { LoadingCard } from '@/components/index.ts';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { NewsItem } from '@/types/index.ts';
 import { ExternalLink } from 'lucide-react';
@@ -35,7 +34,7 @@ export function TechNewsWidget() {
   console.log('newsData :>> ', newsData);
 
   if (!newsData) {
-    return <LoadingCard />;
+    return <p>Carregando...</p>;
   }
 
   return (
