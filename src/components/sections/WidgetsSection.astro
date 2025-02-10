@@ -1,0 +1,13 @@
+<!-- TODO: smaller widgets in another location -->
+<section
+  id='widgets'
+  class='py-20'
+>
+  <h2 class='text-3xl font-bold mb-8'>Widgets</h2>
+  <div
+    class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'
+  >
+    {/* TODO: children shows a skeleton while loading */}
+    <slot />
+  </div>
+</section>
