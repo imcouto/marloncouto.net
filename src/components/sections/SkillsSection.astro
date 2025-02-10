@@ -37,6 +37,9 @@ console.log('skills :>> ', skills);
 <script>
   import gsap from 'gsap';
 
+  const duration = 0.5;
+  const ease = 'power2.out';
+
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.skill-item').forEach((el) => {
       const accentColor = el.getAttribute('data-accent-color')!;
@@ -44,28 +47,32 @@ console.log('skills :>> ', skills);
       el.addEventListener('mouseenter', () => {
         gsap.to(el, {
           scale: 1.1,
-          duration: 0.3,
+          duration,
           border: `2px solid ${accentColor}`,
           color: accentColor,
+          ease,
         });
 
         gsap.to(el.querySelector('.skill-icon'), {
           fill: accentColor,
-          duration: 0.3,
+          duration,
+          ease,
         });
       });
 
       el.addEventListener('mouseleave', () => {
         gsap.to(el, {
           scale: 1,
-          duration: 0.3,
+          duration,
           border: '2px solid transparent',
           color: 'var(--foreground)',
+          ease,
         });
 
         gsap.to(el.querySelector('.skill-icon'), {
           fill: 'var(--foreground)',
-          duration: 0.3,
+          duration,
+          ease,
         });
       });
     });
