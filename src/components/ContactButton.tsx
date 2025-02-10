@@ -13,7 +13,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Mail } from 'lucide-react';
 import { useState } from 'react';
 
-export function ContactModal() {
+export function ContactButton() {
   const [isOpen, setIsOpen] = useState(false);
   console.log('isOpen :>> ', isOpen);
 
@@ -32,6 +32,7 @@ export function ContactModal() {
         <Button
           variant='outline'
           size='icon'
+          className='ml-4'
         >
           <Mail className='h-5 w-5' />
         </Button>

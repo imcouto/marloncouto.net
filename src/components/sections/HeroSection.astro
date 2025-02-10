@@ -1,5 +1,5 @@
 ---
-import { ContactModal } from '@/components/ContactModal.tsx';
+import { ContactButton } from '@/components/index.ts';
 import { Button } from '@/components/ui/button.tsx';
 import { placeholderUrl } from '@/helpers/data.ts';
 import { Github, Linkedin } from 'lucide-react';
@@ -40,7 +40,7 @@ console.log('imageUrl :>> ', imageUrl);
       >
         <Linkedin className='h-5 w-5' />
       </Button>
-      <ContactModal client:load />
+      <ContactButton client:load />
       <!-- <Button
         variant='outline'
         size='icon'

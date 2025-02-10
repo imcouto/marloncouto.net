@@ -1,7 +1,6 @@
+export { ContactButton } from './ContactButton.tsx';
 export { default as ContactForm } from './ContactForm.astro';
-export { ContactModal } from './ContactModal.tsx';
 export { default as FooterComponent } from './FooterComponent.astro';
-export { default as LoadingCard } from './LoadingCard.astro';
 export { default as NavbarComponent } from './NavbarComponent.astro';
 export { ProjectDetails } from './ProjectDetails.tsx';
 export { default as ContactSection } from './sections/ContactSection.astro';
