@@ -11,6 +11,6 @@ export { default as TestimonialsSection } from './sections/TestimonialsSection.a
 export { TimelineSection } from './sections/TimelineSection.tsx';
 export { default as WidgetsSection } from './sections/WidgetsSection.astro';
 export { default as CryptoWidget } from './widgets/CryptoWidget.astro';
-export { DollarQuoteWidget } from './widgets/DollarQuoteWidget.tsx';
-export { TechNewsWidget } from './widgets/TechNewsWidget.tsx';
-export { WeatherWidget } from './widgets/WeatherWidget.tsx';
+export { default as DollarQuoteWidget } from './widgets/DollarQuoteWidget.astro';
+export { default as TechNewsWidget } from './widgets/TechNewsWidget.astro';
+export { default as WeatherWidget } from './widgets/WeatherWidget.astro';

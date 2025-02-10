@@ -20,7 +20,7 @@ export const GET: APIRoute = async ({ request }) => {
     const { data } = await ocktokit.request('GET /users/{username}/repos', {
       username: env.GITHUB_USERNAME.toString(),
     });
-    console.log('data :>> ', data);
+    // console.log('data :>> ', data);
 
     // Filter out excluded repositories and get additional information
     const projects = await Promise.all(
