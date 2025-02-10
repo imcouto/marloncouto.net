@@ -19,7 +19,7 @@ export function TestimonialSlider({
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 3000,
+    speed: 6000,
     autoplaySpeed: 0,
     cssEase: 'linear',
     pauseOnHover: true,
