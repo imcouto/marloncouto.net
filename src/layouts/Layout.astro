@@ -35,3 +35,23 @@ import '@/assets/styles/globals.css';
     height: 100%;
   }
 </style>
+
+<script>
+  function applyDarkModePreference() {
+    const prefersDarkMode =
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (prefersDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('dark-mode', 'true');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('dark-mode', 'false');
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    applyDarkModePreference();
+  });
+</script>
