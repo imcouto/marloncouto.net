@@ -1,18 +1,33 @@
-import type { NavLink, Testimonial, TimelineItem } from '@/types/index.ts';
+import type {
+  NavLink,
+  SkillsData,
+  Testimonial,
+  TimelineItem,
+} from '@/types/index.ts';
+import {
+  siAmazonwebservices,
+  siDocker,
+  siGit,
+  siJavascript,
+  siMysql,
+  siNodedotjs,
+  siPython,
+  siReact,
+} from 'simple-icons';
 
 export const devName = 'Marlon Couto';
 
 export const placeholderUrl = 'https://placehold.co';
 
-export const skills = [
-  'JavaScript',
-  'React',
-  'Node.js',
-  'Python',
-  'SQL',
-  'Git',
-  'Docker',
-  'AWS',
+export const skills: SkillsData[] = [
+  { name: 'JavaScript', accentColor: 'hsl(45, 100%, 51%)', icon: siJavascript },
+  { name: 'React', accentColor: 'hsl(201, 100%, 50%)', icon: siReact },
+  { name: 'Node.js', accentColor: 'hsl(120, 100%, 25%)', icon: siNodedotjs },
+  { name: 'Python', accentColor: 'hsl(200, 100%, 50%)', icon: siPython },
+  { name: 'SQL', accentColor: 'hsl(210, 100%, 40%)', icon: siMysql },
+  { name: 'Git', accentColor: 'hsl(0, 100%, 50%)', icon: siGit },
+  { name: 'Docker', accentColor: 'hsl(200, 100%, 50%)', icon: siDocker },
+  { name: 'AWS', accentColor: 'hsl(45, 100%, 51%)', icon: siAmazonwebservices },
 ];
 
 export const projects = [1, 2, 3];

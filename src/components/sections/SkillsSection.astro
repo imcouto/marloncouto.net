@@ -1,5 +1,7 @@
 ---
-const { skills } = Astro.props as { skills: string[] };
+import type { SkillsData } from '@/types/index.ts';
+
+const { skills } = Astro.props as { skills: SkillsData[] };
 console.log('skills :>> ', skills);
 ---
 
@@ -12,8 +14,50 @@ console.log('skills :>> ', skills);
   <div class='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
     {
       skills.map((skill) => (
-        <div class='bg-secondary p-4 rounded-md text-center'>{skill}</div>
+        <div
+          class='bg-secondary p-3 rounded-md text-center skill-item border-2 border-transparent flex gap-4 justify-center items-center'
+          data-accent-color={skill.accentColor}
+        >
+          <svg
+            width='30'
+            height='30'
+            viewBox='0 0 24 24'
+            fill='var(--foreground)'
+            xmlns='http://www.w3.org/2000/svg'
+            class='skill-icon'
+          >
+            <path d={skill.icon.path} />
+          </svg>
+          <span>{skill.name}</span>
+        </div>
       ))
     }
   </div>
 </section>
+
+<script>
+  import gsap from 'gsap';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.skill-item').forEach((el) => {
+      const accentColor = el.getAttribute('data-accent-color')!;
+      console.log('accentColor :>> ', accentColor);
+
+      el.addEventListener('mouseenter', () => {
+        gsap.to(el, {
+          scale: 1.1,
+          duration: 0.3,
+          border: `2px solid ${accentColor}`,
+        });
+      });
+
+      el.addEventListener('mouseleave', () => {
+        gsap.to(el, {
+          scale: 1,
+          duration: 0.3,
+          border: '2px solid transparent',
+        });
+      });
+    });
+  });
+</script>

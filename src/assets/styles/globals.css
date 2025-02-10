@@ -81,5 +81,7 @@
     -ms-overflow-style: none;
     /* Firefox */
     scrollbar-width: none;
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
   }
 }
