@@ -1,4 +1,3 @@
-import { excludedRepos } from '@/helpers/data.ts';
 import { env } from '@/helpers/environment.ts';
 import type { APIRoute } from 'astro';
 import { Octokit } from 'octokit';
@@ -11,6 +10,8 @@ console.log('token :>> ', token);
 const ocktokit = new Octokit({
   auth: token,
 });
+
+const excludedRepos = env.EXCLUDED_REPOS?.toString().split(',');
 
 export const GET: APIRoute = async ({ request }) => {
   try {
