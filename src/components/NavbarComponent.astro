@@ -1,7 +1,6 @@
 ---
-import { Button } from '@/components/ui/button.tsx';
+import { SidebarComponent } from '@/components/SidebarComponent.tsx';
 import type { NavLink } from '@/types/index.ts';
-import { Menu } from 'lucide-react';
 
 const { devName, navLinks } = Astro.props as {
   devName: string;
@@ -32,14 +31,9 @@ console.log('navLinks :>> ', navLinks);
         ))
       }
     </div>
-    {/* TODO: implements the hamburger menu */}
-    <Button
-      variant='ghost'
-      size='icon'
-      className='md:hidden'
-      onClick={() => console.log('clicked')}
-    >
-      <Menu className='h-6 w-6' />
-    </Button>
+    <SidebarComponent
+      navLinks={navLinks}
+      client:load
+    />
   </div>
 </nav>
