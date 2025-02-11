@@ -1,5 +1,6 @@
 ---
 import '@/assets/styles/globals.css';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <!doctype html>
@@ -20,6 +21,31 @@ import '@/assets/styles/globals.css';
       content={Astro.generator}
     />
     <title>Marlon Couto | Dev FullStack</title>
+    <script is:inline>
+      // Function to apply dark mode preference based on the provided theme
+      function applyDarkModePreference(theme) {
+        if (theme === 'default' || (!theme && !('theme' in localStorage))) {
+          // Remove theme from local storage if no theme is provided
+          localStorage.removeItem('theme');
+        } else if (theme) {
+          // Save the provided theme to local storage
+          localStorage.theme = theme;
+        }
+
+        // Toggle the 'dark' class on the document element based on the theme
+        document.documentElement.classList.toggle(
+          'dark',
+          localStorage.theme === 'dark' ||
+            (!('theme' in localStorage) &&
+              window.matchMedia('(prefers-color-scheme: dark)').matches),
+        );
+      }
+      applyDarkModePreference();
+
+      // Make the function available globally
+      window.applyDarkModePreference = applyDarkModePreference;
+    </script>
+    <ClientRouter />
   </head>
 
   <body>
@@ -35,23 +61,3 @@ import '@/assets/styles/globals.css';
     height: 100%;
   }
 </style>
-
-<script>
-  function applyDarkModePreference() {
-    const prefersDarkMode =
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    if (prefersDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('dark-mode', 'true');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('dark-mode', 'false');
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    applyDarkModePreference();
-  });
-</script>

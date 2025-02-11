@@ -1,14 +1,8 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { mockDollarData } from '@/helpers/data.ts';
 import type { DollarQuoteData } from '@/types/index.ts';
 import { DollarSign, TrendingDown, TrendingUp } from 'lucide-react';
-
-const mockDollarData: DollarQuoteData = {
-  currency: 'USD',
-  quote: 5.03,
-  variation: -0.45,
-  lastUpdate: '2023-06-15T14:30:00Z',
-};
 
 const dollarData: DollarQuoteData = mockDollarData;
 console.log('dollarData :>> ', dollarData);

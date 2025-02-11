@@ -1,49 +1,22 @@
 ---
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { placeholderUrl } from '@/helpers/data.ts';
+import { TestimonialSlider } from '@/components/index.ts';
 import type { Testimonial } from '@/types/index.ts';
-import { Image } from 'astro:assets';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 
 const { testimonials } = Astro.props as { testimonials: Testimonial[] };
 console.log('testimonials :>> ', testimonials);
 ---
 
-<!-- TODO: this is a marquee component, it should be replaced with a infinite carousel -->
 <section
   id='testimonials'
   class='py-20'
 >
   <h2 class='text-3xl font-bold mb-8'>Depoimentos de Clientes</h2>
-  <div class='grid gap-8 md:grid-cols-2 lg:grid-cols-3'>
-    {
-      testimonials.map((testimonial, index) => (
-        <Card
-          key={index}
-          className='flex flex-col h-full'
-        >
-          <CardHeader>
-            <div class='flex items-center space-x-4'>
-              <Image
-                src={testimonial.avatar || `${placeholderUrl}/50`}
-                alt={testimonial.name}
-                width={50}
-                height={50}
-                class='rounded-full'
-                loading='lazy'
-              />
-              <div>
-                <CardTitle className='text-lg'>{testimonial.name}</CardTitle>
-                <p class='text-sm text-muted-foreground'>
-                  {testimonial.position} em {testimonial.company}
-                </p>
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent className='flex-grow'>
-            <p class='italic'>&ldquo;{testimonial.testimonial}&rdquo;</p>
-          </CardContent>
-        </Card>
-      ))
-    }
+  <div class='overflow-hidden'>
+    <TestimonialSlider
+      testimonials={testimonials}
+      client:only='react'
+    />
   </div>
 </section>

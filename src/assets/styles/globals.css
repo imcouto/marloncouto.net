@@ -4,10 +4,6 @@
 
 @tailwind utilities;
 
-.debug {
-  border: 1px solid red;
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -63,11 +59,6 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-
-  /* Style the scrollbar to make it disappear */
-  ::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 @layer base {
@@ -77,11 +68,47 @@
 
   body {
     @apply bg-background text-foreground;
-    /* IE and Edge */
-    -ms-overflow-style: none;
-    /* Firefox */
-    scrollbar-width: none;
-    /* Smooth scrolling */
-    scroll-behavior: smooth;
   }
+}
+
+.debug {
+  border: 1px solid red;
+}
+
+html {
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+body {
+  /* IE and Edge */
+  -ms-overflow-style: none;
+  /* Firefox */
+  scrollbar-width: none;
+}
+
+/* Style the scrollbar to make it disappear */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom styles for the carousel */
+.slick-slide > div {
+  margin: 0 10px;
+}
+
+.slick-list {
+  margin: 0 -10px;
+}
+
+.slick-track {
+  display: flex !important;
+}
+
+.slick-slide {
+  height: inherit !important;
+}
+
+.slick-slide > div {
+  height: 100%;
 }
