@@ -1,5 +1,6 @@
 ---
 import '@/assets/styles/globals.css';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <!doctype html>
@@ -41,14 +42,10 @@ import '@/assets/styles/globals.css';
       }
       applyDarkModePreference();
 
-      // Apply dark mode preference when the document is fully loaded
-      // document.addEventListener('DOMContentLoaded', () => {
-      //   applyDarkModePreference();
-      // });
-
       // Make the function available globally
       window.applyDarkModePreference = applyDarkModePreference;
     </script>
+    <ClientRouter />
   </head>
 
   <body>

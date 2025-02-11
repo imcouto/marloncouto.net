@@ -75,13 +75,16 @@
   border: 1px solid red;
 }
 
+html {
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+}
+
 body {
   /* IE and Edge */
   -ms-overflow-style: none;
   /* Firefox */
   scrollbar-width: none;
-  /* Smooth scrolling */
-  scroll-behavior: smooth;
 }
 
 /* Style the scrollbar to make it disappear */
