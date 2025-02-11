@@ -19,13 +19,13 @@ export function TestimonialSlider({
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 6000,
+    speed: 12_000,
     autoplaySpeed: 0,
     cssEase: 'linear',
     pauseOnHover: true,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1_024,
         settings: {
           slidesToShow: 2,
         },
