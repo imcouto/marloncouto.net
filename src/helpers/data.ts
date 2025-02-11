@@ -49,7 +49,7 @@ export const timelineData: TimelineItem[] = [
     title: 'Desenvolvedor Front-End',
     subtitle: 'Peak One Dev',
     description:
-      'Criação e manutenção de interfaces web usando JavaScript, HTML, CSS e o framework Astro,desenvolvimento e manutenção de sistemas usando Laravel e Node.js',
+      'Criação e manutenção de interfaces web usando JavaScript, HTML, CSS e o framework Astro, desenvolvimento e manutenção de sistemas usando Laravel e Node.js',
     date: '11/2024 - 02/2025',
     type: 'work',
     background: 'rgb(33, 150, 243)',
