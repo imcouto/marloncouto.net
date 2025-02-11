@@ -1,4 +1,6 @@
+import cache from '@/helpers/cache.ts';
 import { env } from '@/helpers/environment.ts';
+import type { RepositoryData } from '@/types/RepositoryData.ts';
 import type { APIRoute } from 'astro';
 import { Octokit } from 'octokit';
 
@@ -15,6 +17,17 @@ const excludedRepos = env.EXCLUDED_REPOS?.toString().split(',');
 
 export const GET: APIRoute = async ({ request }) => {
   try {
+    // Check if the projects are cached
+    const cachedProjects = cache.get<RepositoryData[]>('projects');
+    if (cachedProjects) {
+      console.log('Cached projects found');
+      return new Response(JSON.stringify({ projects: cachedProjects }), {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    }
+
     console.log('request :>> ', request);
 
     // Make a request to get the user's repositories
@@ -24,7 +37,7 @@ export const GET: APIRoute = async ({ request }) => {
     // console.log('data :>> ', data);
 
     // Filter out excluded repositories and get additional information
-    const projects = await Promise.all(
+    const projects: RepositoryData[] = await Promise.all(
       data
         .filter((repo) => !excludedRepos.includes(repo.name))
         .map(async (repo) => {
@@ -36,15 +49,17 @@ export const GET: APIRoute = async ({ request }) => {
 
           return {
             name: repo.name,
-            description: repo.description,
+            description: repo.description ?? '',
             coverImage,
             htmlUrl: repo.html_url,
             id: repo.id,
-            topics: repo.topics,
-            homepage: repo.homepage,
+            topics: repo.topics ?? [],
+            homepage: repo.homepage ?? '',
           };
         }),
     );
+
+    cache.set('projects', projects);
 
     // Return the list of projects as a JSON response
     return new Response(JSON.stringify({ projects }), {

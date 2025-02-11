@@ -4,6 +4,6 @@ export type RepositoryData = {
   coverImage?: string;
   htmlUrl: string;
   id: number;
-  topics: string[];
+  topics?: string[];
   homepage?: string;
 };
