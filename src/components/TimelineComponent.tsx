@@ -5,7 +5,7 @@ import 'react-vertical-timeline-component/style.min.css';
 
 const { VerticalTimeline, VerticalTimelineElement } = reactVerticalTimeline;
 
-// TODO: melhorar a estilização do componente
+// TODO: better styling
 export function TimelineComponent({
   timelineData,
 }: {
