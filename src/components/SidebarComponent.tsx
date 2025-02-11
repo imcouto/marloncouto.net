@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import type { NavLink } from '@/types/NavLink.ts';
+import type { NavLink } from '@/types/index.ts';
 import { Menu } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
