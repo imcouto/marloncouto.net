@@ -23,10 +23,10 @@ import '@/assets/styles/globals.css';
     <script is:inline>
       // Function to apply dark mode preference based on the provided theme
       function applyDarkModePreference(theme) {
-        if (!theme) {
+        if (theme === 'default' || (!theme && !('theme' in localStorage))) {
           // Remove theme from local storage if no theme is provided
           localStorage.removeItem('theme');
-        } else {
+        } else if (theme) {
           // Save the provided theme to local storage
           localStorage.theme = theme;
         }
@@ -39,14 +39,15 @@ import '@/assets/styles/globals.css';
               window.matchMedia('(prefers-color-scheme: dark)').matches),
         );
       }
+      applyDarkModePreference();
+
+      // Apply dark mode preference when the document is fully loaded
+      // document.addEventListener('DOMContentLoaded', () => {
+      //   applyDarkModePreference();
+      // });
 
       // Make the function available globally
       window.applyDarkModePreference = applyDarkModePreference;
-
-      // Apply dark mode preference when the document is fully loaded
-      document.addEventListener('DOMContentLoaded', () => {
-        applyDarkModePreference();
-      });
     </script>
   </head>
 
