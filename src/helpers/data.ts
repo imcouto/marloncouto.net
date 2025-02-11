@@ -1,8 +1,12 @@
 import type {
+  CryptoData,
+  DollarQuoteData,
   NavLink,
+  NewsItem,
   SkillsData,
   Testimonial,
   TimelineItem,
+  WeatherData,
 } from '@/types/index.ts';
 import {
   siAmazonwebservices,
@@ -97,3 +101,40 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const excludedRepos = [''];
+
+export const mockCryptoData: CryptoData[] = [
+  { name: 'Bitcoin', symbol: 'BTC', price: 50000, change24h: 2.5 },
+  { name: 'Ethereum', symbol: 'ETH', price: 3000, change24h: -1.2 },
+  { name: 'Cardano', symbol: 'ADA', price: 1.5, change24h: 0.8 },
+];
+
+export const mockDollarData: DollarQuoteData = {
+  currency: 'USD',
+  quote: 5.03,
+  variation: -0.45,
+  lastUpdate: '2023-06-15T14:30:00Z',
+};
+
+export const mockNewsData: NewsItem[] = [
+  {
+    title: 'Nova IA revoluciona o desenvolvimento de software',
+    url: 'https://example.com/news1',
+    source: 'Tech Daily',
+  },
+  {
+    title: 'Startup brasileira recebe investimento milionário',
+    url: 'https://example.com/news2',
+    source: 'Startup News',
+  },
+  {
+    title: '5G chega a mais cidades no Brasil',
+    url: 'https://example.com/news3',
+    source: 'Telecom Today',
+  },
+];
+
+export const mockWeatherData: WeatherData = {
+  temperature: 22,
+  condition: 'sunny',
+  location: 'São Paulo, BR',
+};

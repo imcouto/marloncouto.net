@@ -1,5 +1,6 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { mockWeatherData } from '@/helpers/data.ts';
 import type { WeatherData } from '@/types/index.ts';
 import { Cloud, CloudRain, Snowflake, Sun } from 'lucide-react';
 
@@ -8,12 +9,6 @@ const weatherIcons = {
   cloudy: Cloud,
   rainy: CloudRain,
   snowy: Snowflake,
-};
-
-const mockWeatherData: WeatherData = {
-  temperature: 22,
-  condition: 'sunny',
-  location: 'São Paulo, BR',
 };
 
 const weatherData: WeatherData = mockWeatherData;

@@ -9,22 +9,11 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { placeholderUrl } from '@/helpers/data.ts';
+import type { RepositoryData } from '@/types/RepositoryData.ts';
 import { ExternalLink, Github } from 'lucide-react';
 import { useState } from 'react';
 
-interface ProjectDetailsModalProps {
-  project: {
-    id: number;
-    name: string;
-    description?: string;
-    coverImage?: string;
-    topics?: string[];
-    homepage?: string;
-    htmlUrl: string;
-  };
-}
-
-export function ProjectDetails({ project }: ProjectDetailsModalProps) {
+export function ProjectDetails({ project }: { project: RepositoryData }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

@@ -1,25 +1,8 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { mockNewsData } from '@/helpers/data.ts';
 import type { NewsItem } from '@/types/index.ts';
 import { ExternalLink } from 'lucide-react';
-
-const mockNewsData: NewsItem[] = [
-  {
-    title: 'Nova IA revoluciona o desenvolvimento de software',
-    url: 'https://example.com/news1',
-    source: 'Tech Daily',
-  },
-  {
-    title: 'Startup brasileira recebe investimento milionário',
-    url: 'https://example.com/news2',
-    source: 'Startup News',
-  },
-  {
-    title: '5G chega a mais cidades no Brasil',
-    url: 'https://example.com/news3',
-    source: 'Telecom Today',
-  },
-];
 
 const newsData: NewsItem[] = mockNewsData;
 console.log('newsData :>> ', newsData);
