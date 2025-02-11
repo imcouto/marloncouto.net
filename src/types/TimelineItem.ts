@@ -1,5 +1,9 @@
 export type TimelineItem = {
-  year: string;
+  date: string;
   title: string;
   description: string;
+  type: 'work' | 'education';
+  background: string;
+  color: string;
+  subtitle: string;
 };

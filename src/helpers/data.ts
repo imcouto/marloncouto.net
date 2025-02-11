@@ -34,32 +34,46 @@ export const skills: SkillsData[] = [
   { name: 'AWS', accentColor: 'hsl(45, 100%, 51%)', icon: siAmazonwebservices },
 ];
 
-export const projects = [1, 2, 3];
-
 export const timelineData: TimelineItem[] = [
   {
-    year: '2023',
-    title: 'Desenvolvedor Full-Stack Sênior',
+    title: 'Desenvolvedor Web Full-Stack',
+    subtitle: 'Freelancer',
     description:
-      'Liderança de equipe e desenvolvimento de aplicações web escaláveis.',
+      'Criação e manutenção de sites dinâmicos e responsivos em HTML, CSS e JavaScript, além de integração com APIs e desenvolvimento de soluções personalizadas para clientes diversos',
+    date: '08/2023 - atual',
+    type: 'work',
+    background: 'rgb(33, 150, 243)',
+    color: '#fff',
   },
   {
-    year: '2021',
-    title: 'Desenvolvedor Full-Stack Pleno',
+    title: 'Desenvolvedor Front-End',
+    subtitle: 'Peak One Dev',
     description:
-      'Foco em arquitetura de microsserviços e otimização de performance.',
+      'Criação e manutenção de interfaces web usando JavaScript, HTML, CSS e o framework Astro,desenvolvimento e manutenção de sistemas usando Laravel e Node.js',
+    date: '11/2024 - 02/2025',
+    type: 'work',
+    background: 'rgb(33, 150, 243)',
+    color: '#fff',
   },
   {
-    year: '2019',
-    title: 'Desenvolvedor Front-end',
+    title: 'Desenvolvedor C# Júnior',
+    subtitle: 'TRIEduc - Inteligência Educacional',
     description:
-      'Especialização em React e desenvolvimento de interfaces responsivas.',
+      'Desenvolvimento e manutenção de código fonte dos sistemas e APIs da empresas usando o ecossistema .NET, além de bancos de dados relacionais e não relacionais, cache e filas',
+    date: '01/2024 - 08/2024',
+    type: 'work',
+    background: 'rgb(33, 150, 243)',
+    color: '#fff',
   },
   {
-    year: '2017',
-    title: 'Estagiário de Desenvolvimento',
+    title: 'Summer Student',
+    subtitle: 'Trybe',
     description:
-      'Início da carreira com foco em HTML, CSS e JavaScript básico.',
+      'Responsável por realizar monitorias técnicas individuais e coletivas, revisão de conteúdo de forma síncrona e suporte por Slack para resolução de dúvidas',
+    date: '07/2023 - 11/2023',
+    type: 'work',
+    background: 'rgb(33, 150, 243)',
+    color: '#fff',
   },
 ];
 
@@ -99,8 +113,6 @@ export const testimonials: Testimonial[] = [
     avatar: '',
   },
 ];
-
-export const excludedRepos = [''];
 
 export const mockCryptoData: CryptoData[] = [
   { name: 'Bitcoin', symbol: 'BTC', price: 50000, change24h: 2.5 },
