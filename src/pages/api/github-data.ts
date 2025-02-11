@@ -1,4 +1,3 @@
-import cache from '@/helpers/cache.ts';
 import { env } from '@/helpers/environment.ts';
 import type { RepositoryData } from '@/types/RepositoryData.ts';
 import type { APIRoute } from 'astro';
@@ -17,17 +16,6 @@ const excludedRepos = env.EXCLUDED_REPOS?.toString().split(',');
 
 export const GET: APIRoute = async ({ request }) => {
   try {
-    // Check if the projects are cached
-    const cachedProjects = cache.get<RepositoryData[]>('projects');
-    if (cachedProjects) {
-      console.log('Cached projects found');
-      return new Response(JSON.stringify({ projects: cachedProjects }), {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-    }
-
     console.log('request :>> ', request);
 
     // Make a request to get the user's repositories
@@ -58,8 +46,6 @@ export const GET: APIRoute = async ({ request }) => {
           };
         }),
     );
-
-    cache.set('projects', projects);
 
     // Return the list of projects as a JSON response
     return new Response(JSON.stringify({ projects }), {
