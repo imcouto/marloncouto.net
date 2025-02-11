@@ -1,5 +1,4 @@
 import type {
-  CryptoData,
   DollarQuoteData,
   NavLink,
   NewsItem,
@@ -112,12 +111,6 @@ export const testimonials: Testimonial[] = [
     testimonial: `Trabalhar com o ${devName} foi uma experiência incrível. Sua comunicação clara e habilidades técnicas são impressionantes.`,
     avatar: '',
   },
-];
-
-export const mockCryptoData: CryptoData[] = [
-  { name: 'Bitcoin', symbol: 'BTC', price: 50000, change24h: 2.5 },
-  { name: 'Ethereum', symbol: 'ETH', price: 3000, change24h: -1.2 },
-  { name: 'Cardano', symbol: 'ADA', price: 1.5, change24h: 0.8 },
 ];
 
 export const mockDollarData: DollarQuoteData = {

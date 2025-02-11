@@ -15,11 +15,11 @@ import { Image } from 'astro:assets';
 
 const res = await GET(Astro);
 const data = await res.json();
-if (data.error) {
+if (data?.error) {
   console.error('Failed to fetch projects:', data.error);
 }
 
-const projects: RepositoryData[] = data.projects;
+const projects: RepositoryData[] = data?.projects;
 console.log('projects :>> ', projects);
 ---
 

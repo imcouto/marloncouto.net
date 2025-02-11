@@ -1,16 +1,22 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { mockCryptoData } from '@/helpers/data.ts';
+import { GET } from '@/pages/api/cryptocurrency.ts';
 import type { CryptoData } from '@/types/index.ts';
 import { Bitcoin, DollarSign, EclipseIcon } from 'lucide-react';
 
 const cryptoIcons: { [key: string]: React.ElementType } = {
-  BTC: Bitcoin,
-  ETH: EclipseIcon,
-  ADA: DollarSign,
+  bitcoin: Bitcoin,
+  ethereum: EclipseIcon,
+  cardano: DollarSign,
 };
 
-const cryptoData: CryptoData[] = mockCryptoData;
+const res = await GET(Astro);
+const data = await res.json();
+if (data?.error) {
+  console.error('Failed to fetch cryptocurrency data:', data.error);
+}
+
+const cryptoData: CryptoData[] = data?.cryptoData;
 console.log('cryptoData :>> ', cryptoData);
 ---
 
@@ -23,22 +29,20 @@ console.log('cryptoData :>> ', cryptoData);
     <ul class='space-y-4'>
       {
         cryptoData.map((crypto) => {
-          const Icon = cryptoIcons[crypto.symbol] || DollarSign;
+          const Icon = cryptoIcons[crypto.name] || DollarSign;
           return (
             <li class='flex items-center justify-between'>
               <div class='flex items-center'>
                 <Icon className='w-6 h-6 mr-2' />
-                <span>{crypto.name}</span>
+                <span class='capitalize'>{crypto.name}</span>
               </div>
               <div class='text-right'>
                 <div class='font-bold'>${crypto.price.toLocaleString()}</div>
                 <div
-                  class={
-                    crypto.change24h >= 0 ? 'text-green-500' : 'text-red-500'
-                  }
+                  class={crypto.change >= 0 ? 'text-green-500' : 'text-red-500'}
                 >
-                  {crypto.change24h > 0 ? '+' : ''}
-                  {crypto.change24h.toFixed(2)}%
+                  {crypto.change > 0 ? '+' : ''}
+                  {crypto.change.toFixed(2)}%
                 </div>
               </div>
             </li>
