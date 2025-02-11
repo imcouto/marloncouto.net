@@ -6,13 +6,15 @@ const { timelineData } = Astro.props as { timelineData: TimelineItem[] };
 console.log('timelineData :>> ', timelineData);
 ---
 
-<section
-  id='timeline'
-  class='py-20'
->
-  <h2 class='text-3xl font-bold mb-8'>Minha Trajetória Profissional</h2>
-  <TimelineComponent
-    client:only='react'
-    timelineData={timelineData}
-  />
-</section>
+<div class='bg-lightGray'>
+  <section
+    id='timeline'
+    class='py-20 container mx-auto px-4'
+  >
+    <h2 class='text-3xl font-bold mb-8'>Minha Trajetória Profissional</h2>
+    <TimelineComponent
+      client:only='react'
+      timelineData={timelineData}
+    />
+  </section>
+</div>
