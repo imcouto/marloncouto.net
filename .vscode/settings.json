@@ -14,5 +14,5 @@
     "source.removeUnusedImports": "explicit",
     "source.sortImports": "explicit"
   },
-  "cSpell.words": ["Amazonwebservices", "codosim", "Nodedotjs"]
+  "cSpell.words": ["Amazonwebservices", "codosim", "Nodedotjs", "USDBRL"]
 }

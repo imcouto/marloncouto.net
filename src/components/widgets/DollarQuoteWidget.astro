@@ -1,10 +1,16 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { mockDollarData } from '@/helpers/data.ts';
+import { GET } from '@/pages/api/dollar-quote.ts';
 import type { DollarQuoteData } from '@/types/index.ts';
 import { DollarSign, TrendingDown, TrendingUp } from 'lucide-react';
 
-const dollarData: DollarQuoteData = mockDollarData;
+const res = await GET(Astro);
+const data = await res.json();
+if (data?.error) {
+  console.error('Failed to fetch dollar data:', data.error);
+}
+
+const dollarData: DollarQuoteData = data?.dollarQuote;
 console.log('dollarData :>> ', dollarData);
 
 const formattedDate = new Date(dollarData.lastUpdate).toLocaleString('pt-BR', {
@@ -17,7 +23,6 @@ const formattedDate = new Date(dollarData.lastUpdate).toLocaleString('pt-BR', {
 console.log('formattedDate :>> ', formattedDate);
 ---
 
-<!-- TODO: make a request to the server to get the data -->
 <Card className='w-full max-w-sm mx-auto'>
   <CardHeader>
     <CardTitle className='flex items-center justify-between'>
