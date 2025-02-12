@@ -1,6 +1,7 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { mockWeatherData } from '@/helpers/data.ts';
+import { GET as getWeather } from '@/pages/api/weather.ts';
 import type { WeatherData } from '@/types/index.ts';
 import { Cloud, CloudRain, Snowflake, Sun } from 'lucide-react';
 
@@ -11,13 +12,18 @@ const weatherIcons = {
   snowy: Snowflake,
 };
 
+const res = await getWeather(Astro);
+const data = await res.json();
+if (data?.error) {
+  console.error(data.error);
+}
+
 const weatherData: WeatherData = mockWeatherData;
 console.log('weatherData :>> ', weatherData);
 
 const WeatherIcon = weatherIcons[weatherData.condition];
 ---
 
-<!-- TODO: make a request to the server to get the data -->
 <Card className='w-full max-w-sm mx-auto'>
   <CardHeader>
     <CardTitle className='flex justify-between items-center'>

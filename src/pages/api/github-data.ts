@@ -5,7 +5,7 @@ import { Octokit } from 'octokit';
 
 // Get the GitHub token from environment variables
 const token = env.GITHUB_TOKEN;
-console.log('token :>> ', token);
+// console.log('token :>> ', token);
 
 // Initialize the Octokit client with authentication
 const ocktokit = new Octokit({
@@ -16,7 +16,7 @@ const excludedRepos = env.EXCLUDED_REPOS?.toString().split(',');
 
 export const GET: APIRoute = async ({ request }) => {
   try {
-    console.log('request :>> ', request);
+    // console.log('request :>> ', request);
 
     // Make a request to get the user's repositories
     const { data } = await ocktokit.request('GET /users/{username}/repos', {
@@ -50,7 +50,7 @@ export const GET: APIRoute = async ({ request }) => {
     // Return the list of projects as a JSON response
     return new Response(JSON.stringify({ projects }), {
       headers: {
-        'Content-Type': 'application/json',
+        'content-type': 'application/json',
       },
     });
   } catch (error) {
@@ -59,7 +59,7 @@ export const GET: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: (error as any).message }), {
       status: 500,
       headers: {
-        'Content-Type': 'application/json',
+        'content-type': 'application/json',
       },
     });
   }
@@ -93,10 +93,10 @@ async function getRepositoryCoverImage(
     );
 
     if (imageFile) {
-      console.log(`Image found: ${imageFile.download_url}`);
+      // console.log(`Image found: ${imageFile.download_url}`);
       return imageFile.download_url; // Raw URL to display on the frontend
     } else {
-      console.log('No image found for repository:', repo);
+      // console.log('No image found for repository:', repo);
       return null;
     }
   } catch (error) {

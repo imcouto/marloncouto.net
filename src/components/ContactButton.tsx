@@ -15,7 +15,7 @@ import { useState } from 'react';
 
 export function ContactButton() {
   const [isOpen, setIsOpen] = useState(false);
-  console.log('isOpen :>> ', isOpen);
+  // console.log('isOpen :>> ', isOpen);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

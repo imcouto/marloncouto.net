@@ -9,11 +9,11 @@ import {
   CardTitle,
 } from '@/components/ui/card.tsx';
 import { placeholderUrl } from '@/helpers/data.ts';
-import { GET } from '@/pages/api/github-data.ts';
+import { GET as getGithubData } from '@/pages/api/github-data.ts';
 import type { RepositoryData } from '@/types/index.ts';
 import { Image } from 'astro:assets';
 
-const res = await GET(Astro);
+const res = await getGithubData(Astro);
 const data = await res.json();
 if (data?.error) {
   console.error('Failed to fetch projects:', data.error);

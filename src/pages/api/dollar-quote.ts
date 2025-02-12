@@ -6,7 +6,7 @@ export const GET: APIRoute = async () => {
     const { data } = await axios.get(
       'https://economia.awesomeapi.com.br/json/last/USD-BRL',
     );
-    console.log('data :>> ', data);
+    // console.log('data :>> ', data);
 
     return new Response(
       JSON.stringify({

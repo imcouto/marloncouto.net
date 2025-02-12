@@ -1,10 +1,10 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { GET } from '@/pages/api/dollar-quote.ts';
+import { GET as getDollarQuote } from '@/pages/api/dollar-quote.ts';
 import type { DollarQuoteData } from '@/types/index.ts';
 import { DollarSign, TrendingDown, TrendingUp } from 'lucide-react';
 
-const res = await GET(Astro);
+const res = await getDollarQuote(Astro);
 const data = await res.json();
 if (data?.error) {
   console.error('Failed to fetch dollar data:', data.error);
@@ -20,7 +20,7 @@ const formattedDate = new Date(dollarData.lastUpdate).toLocaleString('pt-BR', {
   hour: '2-digit',
   minute: '2-digit',
 });
-console.log('formattedDate :>> ', formattedDate);
+// console.log('formattedDate :>> ', formattedDate);
 ---
 
 <Card className='w-full max-w-sm mx-auto'>

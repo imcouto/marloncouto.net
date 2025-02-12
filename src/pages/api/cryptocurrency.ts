@@ -3,12 +3,12 @@ import axios from 'axios';
 
 export const GET: APIRoute = async ({ request }) => {
   try {
-    console.log('request :>> ', request);
+    // console.log('request :>> ', request);
 
     const { data } = await axios.get(
       'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,cardano&vs_currencies=usd&include_24hr_change=true',
     );
-    console.log('data :>> ', data);
+    // console.log('data :>> ', data);
 
     return new Response(
       JSON.stringify({
@@ -32,7 +32,7 @@ export const GET: APIRoute = async ({ request }) => {
       }),
       {
         headers: {
-          'Content-Type': 'application/json',
+          'content-type': 'application/json',
         },
       },
     );
@@ -41,7 +41,7 @@ export const GET: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: (error as any).message }), {
       status: 500,
       headers: {
-        'Content-Type': 'application/json',
+        'content-type': 'application/json',
       },
     });
   }

@@ -1,6 +1,6 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { GET } from '@/pages/api/cryptocurrency.ts';
+import { GET as getCryptoCurrency } from '@/pages/api/cryptocurrency.ts';
 import type { CryptoData } from '@/types/index.ts';
 import { Bitcoin, DollarSign, EclipseIcon } from 'lucide-react';
 
@@ -10,7 +10,7 @@ const cryptoIcons: { [key: string]: React.ElementType } = {
   cardano: DollarSign,
 };
 
-const res = await GET(Astro);
+const res = await getCryptoCurrency(Astro);
 const data = await res.json();
 if (data?.error) {
   console.error('Failed to fetch cryptocurrency data:', data.error);
