@@ -1,5 +1,8 @@
 export type WeatherData = {
+  name: string;
+  region: string;
+  country: string;
+  condition: string;
   temperature: number;
-  condition: 'sunny' | 'cloudy' | 'rainy' | 'snowy';
-  location: string;
+  icon: string;
 };

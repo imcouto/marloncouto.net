@@ -1,40 +1,42 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { mockWeatherData } from '@/helpers/data.ts';
 import { GET as getWeather } from '@/pages/api/weather.ts';
-import type { WeatherData } from '@/types/index.ts';
-import { Cloud, CloudRain, Snowflake, Sun } from 'lucide-react';
-
-const weatherIcons = {
-  sunny: Sun,
-  cloudy: Cloud,
-  rainy: CloudRain,
-  snowy: Snowflake,
-};
+import type { WeatherData } from '@/types/WeatherData.ts';
+import { Image } from 'astro:assets';
 
 const res = await getWeather(Astro);
 const data = await res.json();
 if (data?.error) {
-  console.error(data.error);
+  console.error('Error fetching weather data:', data.error);
 }
 
-const weatherData: WeatherData = mockWeatherData;
+const weatherData: WeatherData = data?.weatherData;
 console.log('weatherData :>> ', weatherData);
-
-const WeatherIcon = weatherIcons[weatherData.condition];
 ---
 
-<Card className='w-full max-w-sm mx-auto'>
+<Card
+  className='w-full max-w-sm mx-auto'
+  title={weatherData?.condition}
+>
   <CardHeader>
-    <CardTitle className='flex justify-between items-center'>
+    <CardTitle className='flex justify-between items-center relative'>
       <span>Clima Atual</span>
-      <WeatherIcon className='w-8 h-8' />
+      <Image
+        class='w-20 h-20 absolute top-0 right-0'
+        src={weatherData?.icon}
+        width={80}
+        height={80}
+        alt={weatherData?.condition}
+        loading='lazy'
+      />
     </CardTitle>
   </CardHeader>
   <CardContent>
     <div class='text-4xl font-bold mb-2'>
-      {weatherData.temperature}°C
+      {weatherData?.temperature}°C
     </div>
-    <div class='text-muted-foreground'>{weatherData.location}</div>
+    <div class='text-muted-foreground'>
+      {`${weatherData?.name}, ${weatherData?.region}`}
+    </div>
   </CardContent>
 </Card>

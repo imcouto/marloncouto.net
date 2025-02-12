@@ -5,7 +5,6 @@ import type {
   SkillsData,
   Testimonial,
   TimelineItem,
-  WeatherData,
 } from '@/types/index.ts';
 import {
   siAmazonwebservices,
@@ -137,9 +136,3 @@ export const mockNewsData: NewsItem[] = [
     source: 'Telecom Today',
   },
 ];
-
-export const mockWeatherData: WeatherData = {
-  temperature: 22,
-  condition: 'sunny',
-  location: 'São Paulo, BR',
-};
