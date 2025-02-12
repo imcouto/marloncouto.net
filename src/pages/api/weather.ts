@@ -1,14 +1,15 @@
 import { env } from '@/helpers/environment.ts';
+import { geolocation } from '@/stores/index.ts';
 import type { APIRoute } from 'astro';
 import axios from 'axios';
 
 export const GET: APIRoute = async () => {
   try {
     const SP = '-23.5475,-46.6361';
-    const geolocation = SP;
+    const geo = geolocation.get() ?? SP;
 
     const { data } = await axios.get(
-      `http://api.weatherapi.com/v1/current.json?q=${geolocation}&lang=pt&key=${env.WEATHER_API_KEY}`,
+      `http://api.weatherapi.com/v1/current.json?q=${geo}&lang=pt&key=${env.WEATHER_API_KEY}`,
     );
     // console.log('data :>> ', data);
 
