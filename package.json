@@ -8,7 +8,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "update:index": "python scripts/update_indexes.py --exclude ui src/components src/types",
-    "start": "npm run build && node dist/server/entry.mjs"
+    "start": "npm run build && node dist/server/entry.mjs",
+    "format": "prettier --write src"
   },
   "dependencies": {
     "@astrojs/node": "^9.0.2",
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "@types/react-slick": "^0.23.13",
-    "@types/react-vertical-timeline-component": "^3.3.6"
+    "@types/react-vertical-timeline-component": "^3.3.6",
+    "prettier": "^3.5.0"
   }
 }
