@@ -1,4 +1,3 @@
-import { env } from '@/helpers/environment.ts';
 import type { WeatherData } from '@/types/WeatherData.ts';
 import axios from 'axios';
 
@@ -13,11 +12,16 @@ export const getWeather = async ({
     const geo = `${latitude},${longitude}`;
     // console.log('geo :>> ', geo);
 
-    const key = env.WEATHER_API_KEY.toString();
-    // console.log('key :>> ', key);
-
-    const { data } = await axios.get(
-      `http://api.weatherapi.com/v1/current.json?q=${geo}&lang=pt&key=${key}`,
+    const { data } = await axios.post(
+      '/api/weather',
+      {
+        geo,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
     );
     // console.log('data :>> ', data);
 
