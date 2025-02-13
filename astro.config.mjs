@@ -8,7 +8,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   integrations: [react(), tailwind({ applyBaseStyles: false })],
   adapter: node({
-    mode: 'standalone',
+    mode: 'middleware',
   }),
   output: 'server',
 });

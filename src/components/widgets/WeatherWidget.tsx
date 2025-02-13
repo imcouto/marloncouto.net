@@ -47,9 +47,16 @@ export function WeatherWidget() {
         }
       }
 
-      async function fetchWeather({ latitude, longitude }: any) {
-        const data = await getWeather({ latitude, longitude });
-        setWeatherData(data);
+      async function fetchWeather({
+        latitude,
+        longitude,
+      }: {
+        latitude: number;
+        longitude: number;
+      }) {
+        const weather = await getWeather({ latitude, longitude });
+        // console.log('weather :>> ', weather);
+        setWeatherData(weather);
       }
     } catch (error) {
       setError((error as any).message);

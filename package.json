@@ -3,13 +3,14 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev --port 8000",
+    "start": "astro build && node run-server.mjs",
+    "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "update:index": "python scripts/update_indexes.py --exclude ui src/components src/types",
-    "start": "npm run build && node dist/server/entry.mjs",
-    "format": "prettier --write src"
+    "format": "prettier --write src",
+    "dev:watch": "nodemon --watch src --ext ts,tsx,astro --exec npm run start",
+    "update:index": "python scripts/update_indexes.py --exclude ui src/components src/types"
   },
   "dependencies": {
     "@astrojs/node": "^9.0.2",
@@ -24,6 +25,8 @@
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "express": "^4.21.2",
+    "google-news-json": "^2.1.0",
     "gsap": "^3.12.7",
     "lucide-react": "^0.474.0",
     "nanostores": "^0.11.3",
@@ -42,6 +45,7 @@
   "devDependencies": {
     "@types/react-slick": "^0.23.13",
     "@types/react-vertical-timeline-component": "^3.3.6",
+    "nodemon": "^3.1.9",
     "prettier": "^3.5.0"
   }
 }
