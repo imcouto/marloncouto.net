@@ -66,7 +66,7 @@ export const timelineData: TimelineItem[] = [
     title: 'Summer Student',
     subtitle: 'Trybe',
     description:
-      'Responsável por realizar monitorias técnicas individuais e coletivas, revisão de conteúdo de forma síncrona e suporte por Slack para resolução de dúvidas',
+      'Responsável por realizar monitorias técnicas individuais e coletivas, revisão de conteúdo de forma síncrona e suporte por Slack para resolução de dúvidas sobre front-end e back-end',
     date: '07/2023 - 11/2023',
     type: 'work',
     background: 'rgb(33, 150, 243)',
