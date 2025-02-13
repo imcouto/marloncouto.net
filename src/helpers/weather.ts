@@ -11,10 +11,10 @@ export const getWeather = async ({
 }) => {
   try {
     const geo = `${latitude},${longitude}`;
-    console.log('geo :>> ', geo);
+    // console.log('geo :>> ', geo);
 
     const key = env.WEATHER_API_KEY.toString();
-    console.log('key :>> ', key);
+    // console.log('key :>> ', key);
 
     const { data } = await axios.get(
       `http://api.weatherapi.com/v1/current.json?q=${geo}&lang=pt&key=${key}`,

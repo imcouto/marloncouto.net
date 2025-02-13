@@ -16,19 +16,17 @@ export function WeatherWidget() {
       if (navigator.geolocation) {
         // Request the current location
         navigator.geolocation.getCurrentPosition(showPosition, showError);
-        // fetchWeather();
       } else {
         console.warn('Geolocation is not supported by this browser.');
       }
 
       function showPosition(position: any) {
         const latitude = position.coords.latitude;
-        console.log('Latitude: ' + latitude);
+        // console.log('Latitude: ' + latitude);
 
         const longitude = position.coords.longitude;
-        console.log('Longitude: ' + longitude);
+        // console.log('Longitude: ' + longitude);
 
-        // geolocation.set({ latitude, longitude });
         fetchWeather({ latitude, longitude });
       }
 
@@ -53,10 +51,6 @@ export function WeatherWidget() {
         const data = await getWeather({ latitude, longitude });
         setWeatherData(data);
       }
-      // async function fetchWeather() {
-      //   const { data } = await axios.get('/api/weather');
-      //   setWeatherData(data.weatherData);
-      // }
     } catch (error) {
       setError((error as any).message);
     } finally {
@@ -64,7 +58,7 @@ export function WeatherWidget() {
     }
   }, []);
 
-  console.log('weatherData :>> ', weatherData);
+  // console.log('weatherData :>> ', weatherData);
 
   if (loading) {
     return <div>Loading...</div>;

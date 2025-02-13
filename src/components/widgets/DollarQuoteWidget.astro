@@ -11,7 +11,7 @@ if (data?.error) {
 }
 
 const dollarData: DollarQuoteData = data?.dollarQuote;
-console.log('dollarData :>> ', dollarData);
+// console.log('dollarData :>> ', dollarData);
 
 const formattedDate = new Date(dollarData.lastUpdate).toLocaleString('pt-BR', {
   day: '2-digit',
