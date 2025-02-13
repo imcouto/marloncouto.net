@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write src",
+    "dev:watch": "nodemon --watch src --ext ts,tsx,astro --exec npm run start",
     "update:index": "python scripts/update_indexes.py --exclude ui src/components src/types"
   },
   "dependencies": {
@@ -44,6 +45,7 @@
   "devDependencies": {
     "@types/react-slick": "^0.23.13",
     "@types/react-vertical-timeline-component": "^3.3.6",
+    "nodemon": "^3.1.9",
     "prettier": "^3.5.0"
   }
 }
