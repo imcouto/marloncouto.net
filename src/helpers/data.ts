@@ -1,5 +1,4 @@
 import type {
-  DollarQuoteData,
   NavLink,
   NewsItem,
   SkillsData,
@@ -79,8 +78,8 @@ export const navLinks: NavLink[] = [
   { href: '#about', label: 'Sobre' },
   { href: '#widgets', label: 'Widgets' },
   { href: '#timeline', label: 'Trajetória' },
-  { href: '#projects', label: 'Projetos' },
-  { href: '#testimonials', label: 'Depoimentos' },
+  // { href: '#projects', label: 'Projetos' },
+  // { href: '#testimonials', label: 'Depoimentos' },
   { href: '#skills', label: 'Habilidades' },
   { href: '#contact', label: 'Contato' },
 ];
@@ -111,13 +110,6 @@ export const testimonials: Testimonial[] = [
     avatar: '',
   },
 ];
-
-export const mockDollarData: DollarQuoteData = {
-  currency: 'USD',
-  quote: 5.03,
-  variation: -0.45,
-  lastUpdate: '2023-06-15T14:30:00Z',
-};
 
 export const mockNewsData: NewsItem[] = [
   {

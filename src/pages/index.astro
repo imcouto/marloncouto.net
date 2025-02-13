@@ -6,10 +6,8 @@ import {
   FooterComponent,
   HeroSection,
   NavbarComponent,
-  ProjectsSection,
   SkillsSection,
   TechNewsWidget,
-  TestimonialsSection,
   TimelineSection,
   WeatherWidget,
   WidgetsSection,
@@ -19,7 +17,6 @@ import {
   heroDescription,
   navLinks,
   skills,
-  testimonials,
   timelineData,
 } from '@/helpers/data.ts';
 import Layout from '@/layouts/Layout.astro';
@@ -55,11 +52,12 @@ import profilePic from '../assets/images/profile.jpg';
         <DollarQuoteWidget />
       </WidgetsSection>
       <TimelineSection timelineData={timelineData} />
-      <ProjectsSection />
-      <TestimonialsSection testimonials={testimonials} />
+      <!-- <ProjectsSection /> -->
+      <!-- <TestimonialsSection testimonials={testimonials} /> -->
       <SkillsSection {skills} />
       <ContactSection />
     </main>
     <FooterComponent devName={devName} />
   </div>
 </Layout>
+<!-- TODO: split sections into pages -->
