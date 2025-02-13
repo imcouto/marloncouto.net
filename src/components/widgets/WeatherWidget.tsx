@@ -3,7 +3,7 @@ import { getWeather } from '@/helpers/weather.ts';
 import type { WeatherData } from '@/types/WeatherData.ts';
 import { useEffect, useState } from 'react';
 
-export async function WeatherWidget() {
+export function WeatherWidget() {
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -12,15 +12,24 @@ export async function WeatherWidget() {
     try {
       setLoading(true);
 
-      async function showPosition(position: any) {
+      // Check if the browser supports the Geolocation API
+      if (navigator.geolocation) {
+        // Request the current location
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+        // fetchWeather();
+      } else {
+        console.warn('Geolocation is not supported by this browser.');
+      }
+
+      function showPosition(position: any) {
         const latitude = position.coords.latitude;
         console.log('Latitude: ' + latitude);
 
         const longitude = position.coords.longitude;
         console.log('Longitude: ' + longitude);
 
-        const data = await getWeather({ latitude, longitude });
-        setWeatherData(data);
+        // geolocation.set({ latitude, longitude });
+        fetchWeather({ latitude, longitude });
       }
 
       function showError(error: any) {
@@ -40,13 +49,14 @@ export async function WeatherWidget() {
         }
       }
 
-      // Check if the browser supports the Geolocation API
-      if (navigator.geolocation) {
-        // Request the current location
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-      } else {
-        setError('Geolocation is not supported by this browser.');
+      async function fetchWeather({ latitude, longitude }: any) {
+        const data = await getWeather({ latitude, longitude });
+        setWeatherData(data);
       }
+      // async function fetchWeather() {
+      //   const { data } = await axios.get('/api/weather');
+      //   setWeatherData(data.weatherData);
+      // }
     } catch (error) {
       setError((error as any).message);
     } finally {

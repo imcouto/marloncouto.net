@@ -7,9 +7,13 @@ export const GET: APIRoute = async () => {
   try {
     const SP = '-23.5475,-46.6361';
     const geo = geolocation.get() ?? SP;
+    console.log('geo :>> ', geo);
+
+    const key = env.WEATHER_API_KEY.toString();
+    console.log('key :>> ', key);
 
     const { data } = await axios.get(
-      `http://api.weatherapi.com/v1/current.json?q=${geo}&lang=pt&key=${env.WEATHER_API_KEY}`,
+      `http://api.weatherapi.com/v1/current.json?q=${geo}&lang=pt&key=${key}`,
     );
     // console.log('data :>> ', data);
 
