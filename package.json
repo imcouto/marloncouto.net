@@ -45,6 +45,7 @@
   "devDependencies": {
     "@types/react-slick": "^0.23.13",
     "@types/react-vertical-timeline-component": "^3.3.6",
+    "@vitejs/plugin-react-swc": "^3.8.0",
     "nodemon": "^3.1.9",
     "prettier": "^3.5.0"
   }
