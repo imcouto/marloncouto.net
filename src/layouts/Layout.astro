@@ -44,6 +44,7 @@ const serverMode = import.meta.env.SERVER_MODE;
         );
       }
 
+      // TODO: add a script to handle dark mode preference even when page transitions occur
       // Function to apply dark mode preference based on the provided theme
       ((theme) => {
         if (theme === 'default' || (!theme && !('theme' in localStorage))) {
@@ -61,7 +62,7 @@ const serverMode = import.meta.env.SERVER_MODE;
             (!('theme' in localStorage) &&
               window.matchMedia('(prefers-color-scheme: dark)').matches),
         );
-      })();
+      })('light');
     </script>
     <slot name='head' />
     <ClientRouter />
