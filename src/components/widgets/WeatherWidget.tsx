@@ -92,6 +92,7 @@ export function WeatherWidget() {
     return <div>Loading...</div>;
   }
 
+  // TODO: show more info
   return (
     <Card
       className='w-full max-w-sm mx-auto'

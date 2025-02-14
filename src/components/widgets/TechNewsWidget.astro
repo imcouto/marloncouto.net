@@ -1,4 +1,5 @@
 ---
+import { Button } from '@/components/ui/button.tsx';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GET as getNews } from '@/pages/api/tech-news.ts';
 import type { NewsItem } from '@/types/index.ts';
@@ -39,5 +40,14 @@ const newsData: NewsItem[] = data?.newsData;
         ))
       }
     </ul>
+    <!-- TODO: add a modal showing more news -->
+    <div class='mt-4'>
+      <Button
+        variant='outline'
+        className='w-full'
+      >
+        Veja mais notícias
+      </Button>
+    </div>
   </CardContent>
 </Card>

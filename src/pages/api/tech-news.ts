@@ -12,7 +12,7 @@ export const GET: APIRoute = async () => {
     const newsData: NewsItem[] = data.items.slice(0, 1).map(
       (item: any) =>
         ({
-          title: item.title,
+          title: item.title.split(' - ')[0],
           url: item.link,
           source: item.source.text,
         }) as NewsItem,
