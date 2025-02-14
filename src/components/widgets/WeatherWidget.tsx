@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { getWeather } from '@/helpers/weather.ts';
 import type { WeatherData } from '@/types/WeatherData.ts';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 export function WeatherWidget() {
@@ -46,22 +46,43 @@ export function WeatherWidget() {
             break;
         }
       }
-
-      async function fetchWeather({
-        latitude,
-        longitude,
-      }: {
-        latitude: number;
-        longitude: number;
-      }) {
-        const weather = await getWeather({ latitude, longitude });
-        // console.log('weather :>> ', weather);
-        setWeatherData(weather);
-      }
     } catch (error) {
       setError((error as any).message);
     } finally {
       setLoading(false);
+    }
+
+    async function fetchWeather({
+      latitude,
+      longitude,
+    }: {
+      latitude: number;
+      longitude: number;
+    }) {
+      const geo = `${latitude},${longitude}`;
+      // console.log('geo :>> ', geo);
+
+      const { data } = await axios.post(
+        '/api/weather',
+        {
+          geo,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+      // console.log('data :>> ', data);
+
+      setWeatherData({
+        name: data.location.name,
+        region: data.location.region,
+        country: data.location.country,
+        condition: data.current.condition.text,
+        temperature: data.current.temp_c,
+        icon: data.current.condition.icon,
+      } as WeatherData);
     }
   }, []);
 
