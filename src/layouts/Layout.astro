@@ -6,6 +6,8 @@ import { devName, navLinks } from '@/helpers/data.ts';
 
 const serverMode = import.meta.env.SERVER_MODE;
 // console.log('serverMode :>> ', serverMode);
+
+const { mainClasses } = Astro.props as { mainClasses: string };
 ---
 
 <!doctype html>
@@ -75,7 +77,7 @@ const serverMode = import.meta.env.SERVER_MODE;
         devName={devName}
         navLinks={navLinks}
       />
-      <main class='mx-auto pt-20'>
+      <main class:list={['mx-auto', mainClasses ?? 'pt-20']}>
         <!-- TODO: add animations to sections -->
         <slot />
       </main>
