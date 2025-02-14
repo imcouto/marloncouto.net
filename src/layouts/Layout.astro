@@ -20,6 +20,14 @@ import { ClientRouter } from 'astro:transitions';
       name='generator'
       content={Astro.generator}
     />
+    <meta
+      http-equiv='cache-control'
+      content='max-age=3600, must-revalidate'
+    />
+    <meta
+      http-equiv='expires'
+      content={new Date(Date.now() + 3600 * 1000).toUTCString()}
+    />
     <title>Marlon Couto | Dev FullStack</title>
     <script is:inline>
       document.write(
@@ -28,8 +36,7 @@ import { ClientRouter } from 'astro:transitions';
           ':35729/livereload.js?snipver=1"></' +
           'script>',
       );
-    </script>
-    <script is:inline>
+
       // Function to apply dark mode preference based on the provided theme
       ((theme) => {
         if (theme === 'default' || (!theme && !('theme' in localStorage))) {
@@ -39,6 +46,7 @@ import { ClientRouter } from 'astro:transitions';
           // Save the provided theme to local storage
           localStorage.theme = theme;
         }
+
         // Toggle the 'dark' class on the document element based on the theme
         document.documentElement.classList.toggle(
           'dark',
