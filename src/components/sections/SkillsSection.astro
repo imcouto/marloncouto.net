@@ -40,8 +40,11 @@ const { skills } = Astro.props as { skills: SkillsData[] };
   const duration = 0.5;
   const ease = 'power2.out';
 
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.skill-item').forEach((el) => {
+  function animateSkills() {
+    const skillsSection = document.querySelector('#skills');
+    if (!skillsSection) return;
+
+    skillsSection.querySelectorAll('.skill-item').forEach((el) => {
       const accentColor = el.getAttribute('data-accent-color')!;
 
       el.addEventListener('mouseenter', () => {
@@ -76,5 +79,19 @@ const { skills } = Astro.props as { skills: SkillsData[] };
         });
       });
     });
+  }
+
+  const observer = new MutationObserver((mutations, obs) => {
+    if (document.querySelector('#skills')) {
+      animateSkills();
+      obs.disconnect(); // To avoid multiple executions
+    }
   });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // In case the section is already present at the time of script execution
+  if (document.querySelector('#skills')) {
+    animateSkills();
+  }
 </script>
