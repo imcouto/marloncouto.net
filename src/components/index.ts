@@ -4,7 +4,6 @@ export { default as FooterComponent } from './FooterComponent.astro';
 export { default as NavbarComponent } from './NavbarComponent.astro';
 export { ProjectDetails } from './ProjectDetails.tsx';
 export { default as ContactSection } from './sections/ContactSection.astro';
-export { default as HeroSection } from './sections/HeroSection.astro';
 export { default as ProjectsSection } from './sections/ProjectsSection.astro';
 export { default as SkillsSection } from './sections/SkillsSection.astro';
 export { default as TestimonialsSection } from './sections/TestimonialsSection.astro';
