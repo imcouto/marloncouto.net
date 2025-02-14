@@ -3,6 +3,9 @@ import '@/assets/styles/globals.css';
 import { ClientRouter } from 'astro:transitions';
 import { NavbarComponent, FooterComponent } from '@/components/index.ts';
 import { devName, navLinks } from '@/helpers/data.ts';
+
+const serverMode = import.meta.env.SERVER_MODE;
+// console.log('serverMode :>> ', serverMode);
 ---
 
 <!doctype html>
@@ -31,13 +34,15 @@ import { devName, navLinks } from '@/helpers/data.ts';
       content={new Date(Date.now() + 3600 * 1000).toUTCString()}
     />
     <title>Marlon Couto | Dev FullStack</title>
-    <script is:inline>
-      document.write(
-        '<script src="http://' +
-          (location.host || 'localhost').split(':')[0] +
-          ':35729/livereload.js?snipver=1"></' +
-          'script>',
-      );
+    <script is:inline define:vars={{ serverMode }}>
+      if (serverMode === 'true') {
+        document.write(
+          '<script src="http://' +
+            (location.host || 'localhost').split(':')[0] +
+            ':35729/livereload.js?snipver=1"></' +
+            'script>',
+        );
+      }
 
       // Function to apply dark mode preference based on the provided theme
       ((theme) => {
@@ -58,13 +63,14 @@ import { devName, navLinks } from '@/helpers/data.ts';
         );
       })();
     </script>
-    <ClientRouter />
     <slot name='head' />
+    <ClientRouter />
   </head>
 
   <body>
     <div class='min-h-screen bg-background text-foreground'>
       <NavbarComponent
+        transition:persist
         devName={devName}
         navLinks={navLinks}
       />
@@ -73,7 +79,10 @@ import { devName, navLinks } from '@/helpers/data.ts';
         <slot />
       </main>
     </div>
-    <FooterComponent devName={devName} />
+    <FooterComponent
+      transition:persist
+      devName={devName}
+    />
 
     <!-- TODO: add a button to scroll the page up -->
   </body>

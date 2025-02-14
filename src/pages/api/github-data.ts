@@ -1,10 +1,9 @@
-import { env } from '@/helpers/environment.ts';
 import type { RepositoryData } from '@/types/RepositoryData.ts';
 import type { APIRoute } from 'astro';
 import { Octokit } from 'octokit';
 
 // Get the GitHub token from environment variables
-const token = env.GITHUB_TOKEN;
+const token = import.meta.env.GITHUB_TOKEN;
 // console.log('token :>> ', token);
 
 // Initialize the Octokit client with authentication
@@ -12,7 +11,7 @@ const ocktokit = new Octokit({
   auth: token,
 });
 
-const excludedRepos = env.EXCLUDED_REPOS?.toString().split(',');
+const excludedRepos = import.meta.env.EXCLUDED_REPOS?.toString().split(',');
 
 export const GET: APIRoute = async ({ request }) => {
   try {
@@ -20,7 +19,7 @@ export const GET: APIRoute = async ({ request }) => {
 
     // Make a request to get the user's repositories
     const { data } = await ocktokit.request('GET /users/{username}/repos', {
-      username: env.GITHUB_USERNAME.toString(),
+      username: import.meta.env.GITHUB_USERNAME.toString(),
     });
     // console.log('data :>> ', data);
 
@@ -31,7 +30,7 @@ export const GET: APIRoute = async ({ request }) => {
         .map(async (repo) => {
           const coverImage = await getRepositoryCoverImage(
             ocktokit,
-            env.GITHUB_USERNAME.toString(),
+            import.meta.env.GITHUB_USERNAME.toString(),
             repo.name,
           );
 
