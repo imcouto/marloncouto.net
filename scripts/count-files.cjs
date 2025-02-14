@@ -22,7 +22,7 @@ function countFileTypes(directory) {
 function main() {
   // Get the directory path from the command line arguments
   if (process.argv.length !== 3) {
-    console.log('Usage: node countFiles.js <directory_path>');
+    console.log('Usage: node count-files.cjs <directory_path>');
     process.exit(1);
   }
 

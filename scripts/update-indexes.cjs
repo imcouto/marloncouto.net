@@ -3,7 +3,7 @@ const path = require('path');
 
 function usage() {
   console.log(
-    'Usage: node script.js [--exclude folder_name] [--types] <folder1> <folder2> ...',
+    'Usage: node update-indexes.cjs [--exclude folder_name] [--types] <folder1> <folder2> ...',
   );
   process.exit(1);
 }
