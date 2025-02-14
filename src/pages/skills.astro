@@ -1,9 +1,97 @@
 ---
-import { SkillsSection } from '@/components/index.ts';
 import { skills } from '@/helpers/data.ts';
 import Layout from '@/layouts/Layout.astro';
 ---
 
 <Layout>
-  <SkillsSection {skills} />
+  <section
+    id='skills'
+    class='py-20 container mx-auto px-4'
+  >
+    <h2 class='text-3xl font-bold mb-8'>Habilidades Técnicas</h2>
+    <div class='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+      {
+        skills.map((skill) => (
+          <div
+            class='bg-secondary p-3 rounded-md text-center skill-item border-2 border-transparent flex gap-4 justify-center items-center'
+            data-accent-color={skill.accentColor}
+          >
+            <svg
+              width='30'
+              height='30'
+              viewBox='0 0 24 24'
+              fill='var(--foreground)'
+              xmlns='http://www.w3.org/2000/svg'
+              class='skill-icon'
+            >
+              <path d={skill.icon.path} />
+            </svg>
+            <span>{skill.name}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
 </Layout>
+
+<script>
+  import gsap from 'gsap';
+
+  const duration = 0.5;
+  const ease = 'power2.out';
+
+  function animateSkills() {
+    const skillsSection = document.querySelector('#skills');
+    if (!skillsSection) return;
+
+    skillsSection.querySelectorAll('.skill-item').forEach((el) => {
+      const accentColor = el.getAttribute('data-accent-color')!;
+
+      el.addEventListener('mouseenter', () => {
+        gsap.to(el, {
+          scale: 1.1,
+          duration,
+          border: `2px solid ${accentColor}`,
+          color: accentColor,
+          ease,
+        });
+
+        gsap.to(el.querySelector('.skill-icon'), {
+          fill: accentColor,
+          duration,
+          ease,
+        });
+      });
+
+      el.addEventListener('mouseleave', () => {
+        gsap.to(el, {
+          scale: 1,
+          duration,
+          border: '2px solid transparent',
+          color: 'var(--foreground)',
+          ease,
+        });
+
+        gsap.to(el.querySelector('.skill-icon'), {
+          fill: 'var(--foreground)',
+          duration,
+          ease,
+        });
+      });
+    });
+  }
+
+  const observer = new MutationObserver((mutations, obs) => {
+    if (document.querySelector('#skills')) {
+      animateSkills();
+      obs.disconnect(); // To avoid multiple executions
+    }
+  });
+
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // In case the section is already present at the time of script execution
+  if (document.querySelector('#skills')) {
+    animateSkills();
+  }
+</script>
