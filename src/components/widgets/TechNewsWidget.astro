@@ -1,14 +1,19 @@
 ---
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { mockNewsData } from '@/helpers/data.ts';
+import { GET as getNews } from '@/pages/api/tech-news.ts';
 import type { NewsItem } from '@/types/index.ts';
 import { ExternalLink } from 'lucide-react';
 
-const newsData: NewsItem[] = mockNewsData;
+const res = await getNews(Astro);
+const data = await res.json();
+if (data?.error) {
+  console.error('Failed to fetch news data:', data.error);
+}
+
+const newsData: NewsItem[] = data?.newsData;
 // console.log('newsData :>> ', newsData);
 ---
 
-<!-- TODO: make a request to the server to get the data -->
 <Card className='w-full max-w-sm mx-auto'>
   <CardHeader>
     <CardTitle>Notícias de Tecnologia</CardTitle>

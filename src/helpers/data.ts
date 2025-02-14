@@ -1,6 +1,5 @@
 import type {
   NavLink,
-  NewsItem,
   SkillsData,
   Testimonial,
   TimelineItem,
@@ -108,23 +107,5 @@ export const testimonials: Testimonial[] = [
     company: 'WebSolutions',
     testimonial: `Trabalhar com o ${devName} foi uma experiência incrível. Sua comunicação clara e habilidades técnicas são impressionantes.`,
     avatar: '',
-  },
-];
-
-export const mockNewsData: NewsItem[] = [
-  {
-    title: 'Nova IA revoluciona o desenvolvimento de software',
-    url: 'https://example.com/news1',
-    source: 'Tech Daily',
-  },
-  {
-    title: 'Startup brasileira recebe investimento milionário',
-    url: 'https://example.com/news2',
-    source: 'Startup News',
-  },
-  {
-    title: '5G chega a mais cidades no Brasil',
-    url: 'https://example.com/news3',
-    source: 'Telecom Today',
   },
 ];
