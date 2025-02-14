@@ -5,7 +5,6 @@ export { default as NavbarComponent } from './NavbarComponent.astro';
 export { ProjectDetails } from './ProjectDetails.tsx';
 export { default as ProjectsSection } from './sections/ProjectsSection.astro';
 export { default as TestimonialsSection } from './sections/TestimonialsSection.astro';
-export { default as TimelineSection } from './sections/TimelineSection.astro';
 export { SidebarComponent } from './SidebarComponent.tsx';
 export { TestimonialSlider } from './TestimonialSlider.tsx';
 export { TimelineComponent } from './TimelineComponent.tsx';

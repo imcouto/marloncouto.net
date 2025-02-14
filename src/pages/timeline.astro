@@ -1,9 +1,20 @@
 ---
-import { TimelineSection } from '@/components/index.ts';
+import { TimelineComponent } from '@/components/index.ts';
 import { timelineData } from '@/helpers/data.ts';
 import Layout from '@/layouts/Layout.astro';
 ---
 
 <Layout mainClasses='pt-0'>
-  <TimelineSection timelineData={timelineData} />
+  <div class='bg-lightGray'>
+    <section
+      id='timeline'
+      class='p-20 container mx-auto px-4'
+    >
+      <h2 class='text-3xl font-bold mb-8'>Minha Trajetória Profissional</h2>
+      <TimelineComponent
+        client:only='react'
+        timelineData={timelineData}
+      />
+    </section>
+  </div>
 </Layout>
