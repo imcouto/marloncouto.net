@@ -18,7 +18,7 @@ app.get('/api/status', (_, res) => {
   res.json({ message: 'Server status is OK' });
 });
 
-const port = import.meta.env.SERVER_PORT ?? 8080;
+const port = import.meta.env?.SERVER_PORT ?? 8080;
 app.listen(port, () =>
   console.log(`Server started at http://localhost:${port}`),
 );
