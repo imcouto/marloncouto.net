@@ -74,13 +74,13 @@ export const timelineData: TimelineItem[] = [
 ];
 
 export const navLinks: NavLink[] = [
-  { href: '#about', label: 'Sobre' },
-  { href: '#widgets', label: 'Widgets' },
-  { href: '#timeline', label: 'Trajetória' },
-  // { href: '#projects', label: 'Projetos' },
-  // { href: '#testimonials', label: 'Depoimentos' },
-  { href: '#skills', label: 'Habilidades' },
-  { href: '#contact', label: 'Contato' },
+  { href: '/', label: 'Sobre' },
+  { href: '/widgets', label: 'Widgets' },
+  { href: '/timeline', label: 'Trajetória' },
+  // { href: '/projects', label: 'Projetos' },
+  // { href: '/testimonials', label: 'Depoimentos' },
+  { href: '/skills', label: 'Habilidades' },
+  { href: '/contact', label: 'Contato' },
 ];
 
 export const heroDescription =

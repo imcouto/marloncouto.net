@@ -10,7 +10,7 @@
     "astro": "astro",
     "format": "prettier --write src",
     "dev:watch": "nodemon --watch src --ext ts,tsx,astro --exec npm run start --ignore public",
-    "update:index": "python scripts/update_indexes.py --exclude ui src/components src/types"
+    "update:index": "node scripts/update-indexes.cjs --exclude ui src/components src/types"
   },
   "dependencies": {
     "@astrojs/node": "^9.0.2",
@@ -29,6 +29,7 @@
     "express": "^4.21.2",
     "google-news-json": "^2.1.0",
     "gsap": "^3.12.7",
+    "livereload": "^0.9.3",
     "lucide-react": "^0.474.0",
     "nanostores": "^0.11.3",
     "octokit": "^4.1.1",
@@ -46,8 +47,6 @@
   "devDependencies": {
     "@types/react-slick": "^0.23.13",
     "@types/react-vertical-timeline-component": "^3.3.6",
-    "@vitejs/plugin-react-swc": "^3.8.0",
-    "livereload": "^0.9.3",
     "nodemon": "^3.1.9",
     "prettier": "^3.5.0"
   }

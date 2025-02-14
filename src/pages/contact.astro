@@ -1,0 +1,32 @@
+---
+import { ContactForm } from '@/components/index.ts';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card.tsx';
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout>
+  <section
+    id='contact'
+    class='py-20 container mx-auto px-4'
+  >
+    <h2 class='text-3xl font-bold mb-8'>Entre em Contato</h2>
+    <Card>
+      <CardHeader>
+        <CardTitle>Envie uma mensagem</CardTitle>
+        <CardDescription>
+          Ficarei feliz em conversar sobre oportunidades de trabalho ou
+          colaborações.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <ContactForm />
+      </CardContent>
+    </Card>
+  </section>
+</Layout>
