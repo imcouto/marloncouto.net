@@ -1,6 +1,8 @@
 ---
 import '@/assets/styles/globals.css';
 import { ClientRouter } from 'astro:transitions';
+import { NavbarComponent, FooterComponent } from '@/components/index.ts';
+import { devName, navLinks } from '@/helpers/data.ts';
 ---
 
 <!doctype html>
@@ -57,10 +59,22 @@ import { ClientRouter } from 'astro:transitions';
       })();
     </script>
     <ClientRouter />
+    <slot name='head' />
   </head>
 
   <body>
-    <slot />
+    <div class='min-h-screen bg-background text-foreground'>
+      <NavbarComponent
+        devName={devName}
+        navLinks={navLinks}
+      />
+      <main class='mx-auto pt-20'>
+        <!-- TODO: add animations to sections -->
+        <slot />
+      </main>
+    </div>
+    <FooterComponent devName={devName} />
+
     <!-- TODO: add a button to scroll the page up -->
   </body>
 </html>

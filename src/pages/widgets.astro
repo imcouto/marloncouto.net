@@ -1,0 +1,19 @@
+---
+import {
+  CryptoWidget,
+  DollarQuoteWidget,
+  TechNewsWidget,
+  WeatherWidget,
+  WidgetsSection,
+} from '@/components/index.ts';
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout>
+  <WidgetsSection>
+    <TechNewsWidget />
+    <WeatherWidget client:load />
+    <CryptoWidget />
+    <DollarQuoteWidget />
+  </WidgetsSection>
+</Layout>
