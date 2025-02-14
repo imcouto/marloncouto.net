@@ -12,7 +12,7 @@ app.use(base, express.static('dist/client/'));
 
 app.use(ssrHandler);
 
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:8080' }));
 
 app.get('/api/status', (_, res) => {
   res.json({ message: 'Server status is OK' });
