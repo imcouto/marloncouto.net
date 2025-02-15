@@ -1,9 +1,11 @@
 ---
 import { skills } from '@/helpers/data.ts';
 import Layout from '@/layouts/Layout.astro';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <Layout>
+  <ClientRouter slot='head' />
   <section
     id='skills'
     class='py-20 container mx-auto px-4'
@@ -81,7 +83,7 @@ import Layout from '@/layouts/Layout.astro';
     });
   }
 
-  const observer = new MutationObserver((mutations, obs) => {
+  const observer = new MutationObserver((_, obs) => {
     if (document.querySelector('#skills')) {
       animateSkills();
       obs.disconnect(); // To avoid multiple executions

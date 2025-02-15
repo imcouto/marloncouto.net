@@ -13,6 +13,7 @@
     "update:index": "node scripts/update-indexes.cjs --exclude ui src/components src/types"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "@astrojs/node": "^9.0.2",
     "@astrojs/react": "^4.1.6",
     "@astrojs/tailwind": "^5.1.5",
@@ -42,7 +43,8 @@
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.6.0",
     "tailwindcss": "^3.4.17",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.7.3"
   },
   "devDependencies": {
     "@types/react-slick": "^0.23.13",

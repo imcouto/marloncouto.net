@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import axios from 'axios';
 
-export const GET: APIRoute = async ({ request }) => {
+export const GET: APIRoute = async () => {
   try {
     // console.log('request :>> ', request);
 

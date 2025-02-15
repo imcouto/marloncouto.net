@@ -13,7 +13,7 @@ const ocktokit = new Octokit({
 
 const excludedRepos = import.meta.env.EXCLUDED_REPOS?.toString().split(',');
 
-export const GET: APIRoute = async ({ request }) => {
+export const GET: APIRoute = async () => {
   try {
     // console.log('request :>> ', request);
 

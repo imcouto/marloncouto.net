@@ -6,9 +6,11 @@ import {
   WeatherWidget,
 } from '@/components/index.ts';
 import Layout from '@/layouts/Layout.astro';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <Layout>
+  <ClientRouter slot='head' />
   <section
     id='widgets'
     class='py-20 container mx-auto px-4'
@@ -18,7 +20,7 @@ import Layout from '@/layouts/Layout.astro';
       class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'
     >
       <TechNewsWidget />
-      <WeatherWidget client:load />
+      <WeatherWidget />
       <CryptoWidget />
       <DollarQuoteWidget />
     </div>
