@@ -88,7 +88,7 @@ const { mainClasses } = Astro.props as { mainClasses: string };
 
     <!-- TODO: add a button to scroll the page up -->
     <script>
-      import { weatherData } from '@/stores/index.ts';
+      import { weatherStore } from '@/stores/index.ts';
       import type { WeatherData } from '@/types/WeatherData.ts';
       import axios from 'axios';
 
@@ -155,7 +155,7 @@ const { mainClasses } = Astro.props as { mainClasses: string };
         );
         // console.log('data :>> ', data);
 
-        weatherData.set({
+        weatherStore.set({
           name: data.location.name,
           region: data.location.region,
           country: data.location.country,

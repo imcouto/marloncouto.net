@@ -11,4 +11,4 @@ export { TimelineComponent } from './TimelineComponent.tsx';
 export { default as CryptoWidget } from './widgets/CryptoWidget.astro';
 export { default as DollarQuoteWidget } from './widgets/DollarQuoteWidget.astro';
 export { default as TechNewsWidget } from './widgets/TechNewsWidget.astro';
-export { default as WeatherWidget } from './widgets/WeatherWidget.astro';
+export { WeatherWidget } from './widgets/WeatherWidget.tsx';

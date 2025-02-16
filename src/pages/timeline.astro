@@ -2,9 +2,14 @@
 import { TimelineComponent } from '@/components/index.ts';
 import { timelineData } from '@/helpers/data.ts';
 import Layout from '@/layouts/Layout.astro';
+import { ClientRouter } from 'astro:transitions';
 ---
 
-<Layout mainClasses='pt-0'>
+<Layout
+  mainClasses='pt-0'
+  transition:animate='none'
+>
+  <ClientRouter slot='head' />
   <div class='bg-lightGray min-h-screen'>
     <section
       id='timeline'
