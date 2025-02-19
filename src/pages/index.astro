@@ -21,6 +21,7 @@ import profilePic from '../assets/images/profile.jpg';
         Olá, eu sou {devName}
       </h1>
       <p class='text-xl mb-6'>{heroDescription}</p>
+
       <div class='flex space-x-4'>
         <Button
           variant='outline'
@@ -37,6 +38,7 @@ import profilePic from '../assets/images/profile.jpg';
         <ContactButton client:load />
       </div>
     </div>
+
     <div class='md:w-1/2 flex justify-center'>
       <Image
         src={profilePic ?? `${placeholderUrl}/300`}

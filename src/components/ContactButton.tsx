@@ -45,6 +45,7 @@ export function ContactButton() {
             Responderei o mais breve possível.
           </DialogDescription>
         </DialogHeader>
+
         <form
           onSubmit={handleSubmit}
           className='space-y-4'
@@ -56,6 +57,7 @@ export function ContactButton() {
               required
             />
           </div>
+
           <div>
             <Label htmlFor='email'>Email</Label>
             <Input
@@ -64,6 +66,7 @@ export function ContactButton() {
               required
             />
           </div>
+
           <div>
             <Label htmlFor='message'>Mensagem</Label>
             <Textarea
@@ -71,6 +74,7 @@ export function ContactButton() {
               required
             />
           </div>
+
           <Button
             type='submit'
             className='w-full'

@@ -1,0 +1,101 @@
+---
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
+import { Image } from 'astro:assets';
+---
+
+<!-- TODO: show more info -->
+<Card
+  className='w-full max-w-sm mx-auto'
+  title=''
+>
+  <CardHeader>
+    <CardTitle className='flex justify-between items-center relative'>
+      <span>Clima Atual</span>
+      <Image
+        class='w-20 h-20 absolute top-0 right-0'
+        src=''
+        width={80}
+        height={80}
+        alt=''
+        loading='lazy'
+      />
+    </CardTitle>
+  </CardHeader>
+</Card>
+
+<script>
+  import { weatherStore } from '@/stores/index.ts';
+  import type { WeatherData } from '@/types/WeatherData.ts';
+  import axios from 'axios';
+
+  try {
+    if (navigator.geolocation) {
+      // Request the current location
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      console.warn('Geolocation is not supported by this browser.');
+    }
+
+    function showPosition(position: any) {
+      const latitude = position.coords.latitude;
+      // console.log('Latitude: ' + latitude);
+
+      const longitude = position.coords.longitude;
+      // console.log('Longitude: ' + longitude);
+
+      fetchWeather({ latitude, longitude });
+    }
+
+    function showError(error: any) {
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          console.error('User denied the request for Geolocation.');
+          break;
+        case error.POSITION_UNAVAILABLE:
+          console.error('Location information is unavailable.');
+          break;
+        case error.TIMEOUT:
+          console.error('The request to get user location timed out.');
+          break;
+        case error.UNKNOWN_ERROR:
+          console.error('An unknown error occurred.');
+          break;
+      }
+    }
+  } catch (error) {
+    console.error((error as any).message);
+  }
+
+  async function fetchWeather({
+    latitude,
+    longitude,
+  }: {
+    latitude: number;
+    longitude: number;
+  }) {
+    const geo = `${latitude},${longitude}`;
+    // console.log('geo :>> ', geo);
+
+    const { data } = await axios.post(
+      '/api/weather',
+      {
+        geo,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+    // console.log('data :>> ', data);
+
+    weatherStore.set({
+      name: data.location.name,
+      region: data.location.region,
+      country: data.location.country,
+      condition: data.current.condition.text,
+      temperature: data.current.temp_c,
+      icon: data.current.condition.icon,
+    } as WeatherData);
+  }
+</script>
