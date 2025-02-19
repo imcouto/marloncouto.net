@@ -5,7 +5,7 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const { geo } = await request.json();
 
-    const key = import.meta.env.WEATHER_API_KEY.toString();
+    const key = import.meta.env?.WEATHER_API_KEY.toString();
     // console.log('key :>> ', key);
 
     const { data } = await axios.get(
