@@ -1,8 +1,20 @@
+import { HOUR } from '@/helpers/constants.ts';
+import { ServerCache } from '@/helpers/server-cache.ts';
 import type { NewsItem } from '@/types/NewsItem.ts';
 import type { APIRoute } from 'astro';
 import Parser from 'rss-parser';
 
+const cache = new ServerCache(6 * HOUR);
+
 export const GET: APIRoute = async () => {
+  const cachedData = cache.get('techNews');
+  if (cachedData) {
+    // console.log('cachedData :>> ', cachedData);
+    return new Response(JSON.stringify({ newsData: cachedData }), {
+      headers: { 'content-type': 'application/json' },
+    });
+  }
+
   try {
     const parser = new Parser();
     const url =
@@ -17,6 +29,8 @@ export const GET: APIRoute = async () => {
       source: item.title.split(' - ')[1],
     }));
     // console.log('newsData :>> ', newsData);
+
+    cache.set('techNews', newsData);
 
     return new Response(JSON.stringify({ newsData }), {
       headers: { 'content-type': 'application/json' },

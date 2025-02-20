@@ -1,3 +1,5 @@
+import { HOUR } from '@/helpers/constants.ts';
+import { ServerCache } from '@/helpers/server-cache.ts';
 import type { RepositoryData } from '@/types/RepositoryData.ts';
 import type { APIRoute } from 'astro';
 import { Octokit } from 'octokit';
@@ -13,7 +15,19 @@ const ocktokit = new Octokit({
 
 const excludedRepos = import.meta.env?.EXCLUDED_REPOS?.toString().split(',');
 
+const cache = new ServerCache(6 * HOUR);
+
 export const GET: APIRoute = async () => {
+  const cachedData = cache.get('githubData');
+  if (cachedData) {
+    // console.log('cachedData :>> ', cachedData);
+    return new Response(JSON.stringify({ projects: cachedData }), {
+      headers: {
+        'content-type': 'application/json',
+      },
+    });
+  }
+
   try {
     // console.log('request :>> ', request);
 
@@ -45,6 +59,8 @@ export const GET: APIRoute = async () => {
           };
         }),
     );
+
+    cache.set('githubData', projects);
 
     // Return the list of projects as a JSON response
     return new Response(JSON.stringify({ projects }), {
