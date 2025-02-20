@@ -8,7 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { placeholderUrl } from '@/helpers/data.ts';
+import { placeholderUrl } from '@/lib/data';
 import type { RepositoryData } from '@/types/RepositoryData.ts';
 import { ExternalLink, Github } from 'lucide-react';
 import { useState } from 'react';

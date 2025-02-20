@@ -2,7 +2,7 @@
 import '@/assets/styles/globals.css';
 import { ClientRouter } from 'astro:transitions';
 import { NavbarComponent, FooterComponent } from '@/components/index.ts';
-import { devName, navLinks } from '@/helpers/data.ts';
+import { devName, navLinks } from '@/lib/data';
 
 const serverMode = import.meta.env?.SERVER_MODE;
 // console.log('serverMode :>> ', serverMode);

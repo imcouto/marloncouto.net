@@ -1,5 +1,5 @@
-import { HOUR } from '@/helpers/constants.ts';
-import { ServerCache } from '@/helpers/server-cache.ts';
+import { HOUR } from '@/lib/constants';
+import { ServerCache } from '@/lib/server-cache';
 import type { NewsItem } from '@/types/NewsItem.ts';
 import type { APIRoute } from 'astro';
 import Parser from 'rss-parser';

@@ -4,7 +4,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card.tsx';
-import { placeholderUrl } from '@/helpers/data.ts';
+import { placeholderUrl } from '@/lib/data';
 import type { Testimonial } from '@/types/Testimonial.ts';
 import Slider from 'react-slick';
 

@@ -1,5 +1,5 @@
-import { HOUR } from '@/helpers/constants.ts';
-import { ServerCache } from '@/helpers/server-cache.ts';
+import { HOUR } from '@/lib/constants';
+import { ServerCache } from '@/lib/server-cache';
 import type { RepositoryData } from '@/types/RepositoryData.ts';
 import type { APIRoute } from 'astro';
 import { Octokit } from 'octokit';
