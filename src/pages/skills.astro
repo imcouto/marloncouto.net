@@ -81,14 +81,7 @@ import Layout from '@/layouts/Layout.astro';
     });
   }
 
-  const observer = new MutationObserver((_, obs) => {
-    if (document.querySelector('#skills')) {
-      animateSkills();
-      obs.disconnect(); // To avoid multiple executions
-    }
-  });
-
-  observer.observe(document.body, { childList: true, subtree: true });
+  document.addEventListener('astro:after-swap', animateSkills);
 
   // In case the section is already present at the time of script execution
   if (document.querySelector('#skills')) {
