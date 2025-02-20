@@ -1,22 +1,21 @@
 import type { NewsItem } from '@/types/NewsItem.ts';
 import type { APIRoute } from 'astro';
-// @ts-ignore
-import { getNews, TOPIC, TOPICS_TECHNOLOGY } from 'google-news-json';
+import Parser from 'rss-parser';
 
-// TODO: request news from Google News API using axios instead of google-news-json
 export const GET: APIRoute = async () => {
   try {
-    const data = await getNews(TOPIC, TOPICS_TECHNOLOGY, 'pt-br');
-    // console.log('data :>> ', data.items[0]);
+    const parser = new Parser();
+    const url =
+      'https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=pt-br&gl=BR&ceid=BR:pt';
 
-    const newsData: NewsItem[] = data.items.slice(0, 1).map(
-      (item: any) =>
-        ({
-          title: item.title.split(' - ')[0],
-          url: item.link,
-          source: item.source.text,
-        }) as NewsItem,
-    );
+    const feed = await parser.parseURL(url);
+    // console.log('feed.items :>> ', feed.items);
+
+    const newsData: NewsItem[] = feed.items.slice(0, 1).map((item: any) => ({
+      title: item.title.split(' - ')[0],
+      url: item.link,
+      source: item.title.split(' - ')[1],
+    }));
     // console.log('newsData :>> ', newsData);
 
     return new Response(JSON.stringify({ newsData }), {
