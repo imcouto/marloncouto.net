@@ -23,7 +23,7 @@ export const GET: APIRoute = async () => {
     const feed = await parser.parseURL(url);
     // console.log('feed.items :>> ', feed.items);
 
-    const newsData: NewsItem[] = feed.items.slice(0, 1).map((item: any) => ({
+    const newsData: NewsItem[] = feed.items.slice(0, 3).map((item: any) => ({
       title: item.title.split(' - ')[0],
       url: item.link,
       source: item.title.split(' - ')[1],

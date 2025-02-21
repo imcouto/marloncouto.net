@@ -2,7 +2,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { GET as getDollarQuote } from '@/pages/api/dollar-quote.ts';
 import type { DollarQuoteData } from '@/types/index.ts';
-import { DollarSign, TrendingDown, TrendingUp } from 'lucide-react';
+import { ArrowRight, DollarSign, TrendingDown, TrendingUp } from 'lucide-react';
 
 const res = await getDollarQuote(Astro);
 const data = await res.json();
@@ -10,7 +10,17 @@ if (data?.error) {
   console.error('Failed to fetch dollar data:', data.error);
 }
 
-const dollarData: DollarQuoteData = data?.dollarQuote;
+const dollarData: DollarQuoteData = {
+  currency: 'USD',
+  quote: 5.03,
+  variation: -0.45,
+  variationAmount: -0.0228,
+  max: 5.08,
+  min: 5.01,
+  lastUpdate: '2023-06-15T14:30:00Z',
+  historicalData: [5.05, 5.02, 5.04, 5.03, 5.06, 5.03],
+};
+// const dollarData: DollarQuoteData = data?.dollarQuote;
 // console.log('dollarData :>> ', dollarData);
 
 const formattedDate = new Date(dollarData.lastUpdate).toLocaleString('pt-BR', {
@@ -21,6 +31,14 @@ const formattedDate = new Date(dollarData.lastUpdate).toLocaleString('pt-BR', {
   minute: '2-digit',
 });
 // console.log('formattedDate :>> ', formattedDate);
+
+const normalizedData = dollarData.historicalData.map(
+  (value) =>
+    ((value - Math.min(...dollarData.historicalData)) /
+      (Math.max(...dollarData.historicalData) -
+        Math.min(...dollarData.historicalData))) *
+    40,
+);
 ---
 
 <!-- TODO: show more info -->
@@ -51,8 +69,47 @@ const formattedDate = new Date(dollarData.lastUpdate).toLocaleString('pt-BR', {
         <span>{Math.abs(dollarData.variation).toFixed(2)}%</span>
       </div>
     </div>
-    <div class='text-sm text-muted-foreground'>
-      Última atualização: {formattedDate}
+    <div class='space-y-2 text-sm'>
+      <div class='flex justify-between'>
+        <span>Variação (R$):</span>
+        <span
+          class={dollarData.variationAmount >= 0
+            ? 'text-green-500'
+            : 'text-red-500'}
+        >
+          {dollarData.variationAmount >= 0 ? '+' : ''}
+          {dollarData.variationAmount.toFixed(4)}
+        </span>
+      </div>
+      <div class='flex justify-between'>
+        <span>Máxima:</span>
+        <span>R$ {dollarData.max.toFixed(2)}</span>
+      </div>
+      <div class='flex justify-between'>
+        <span>Mínima:</span>
+        <span>R$ {dollarData.min.toFixed(2)}</span>
+      </div>
+    </div>
+    <div class='flex items-end h-10 mt-4 space-x-1'>
+      {
+        normalizedData.map((value) => (
+          <div
+            class='w-1 bg-primary'
+            style={{ height: `${value}px` }}
+          />
+        ))
+      }
+    </div>
+    <div
+      class='flex items-center justify-between mt-4 text-xs text-muted-foreground'
+    >
+      <span>Última atualização: {formattedDate}</span>
+      <a
+        href='#'
+        class='flex items-center hover:text-primary transition-colors'
+      >
+        Mais detalhes <ArrowRight className='w-3 h-3 ml-1' />
+      </a>
     </div>
   </CardContent>
 </Card>
