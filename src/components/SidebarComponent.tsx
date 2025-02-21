@@ -1,5 +1,12 @@
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 import type { NavLink } from '@/types/index.ts';
 import { Menu } from 'lucide-react';
 import { useEffect, useState } from 'react';
@@ -42,6 +49,12 @@ export function SidebarComponent({ navLinks }: { navLinks: NavLink[] }) {
         side='left'
         className='w-[300px] sm:w-[400px]'
       >
+        <SheetHeader>
+          <SheetTitle className='text-left'>Páginas</SheetTitle>
+          <SheetDescription className='text-left'>
+            Navegue pelas páginas do portfólio
+          </SheetDescription>
+        </SheetHeader>
         <nav className='flex flex-col space-y-4 mt-8'>
           {navLinks.map((item) => (
             <a
